@@ -24,6 +24,20 @@
   animation: slide-up 0.3s ease-out;
 }
 
+/* Bouncing animation for accept all button */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-button {
+  animation: bounce 1s ease-in-out infinite;
+}
+
 /* Improve dialog styling */
 ::ng-deep .p-dialog .p-dialog-header {
   padding: 1.5rem;

@@ -1,3 +1,13 @@
+<!-- Overlay to block interactions until cookies are accepted -->
+@if (showBanner()) {
+<div
+  class="fixed inset-0 z-40 bg-black/20 pointer-events-auto"
+  (click)="$event.stopPropagation()"
+  (mousedown)="$event.stopPropagation()"
+  (touchstart)="$event.stopPropagation()"
+></div>
+}
+
 <!-- Cookie Banner -->
 @if (showBanner()) {
 <div
@@ -9,14 +19,8 @@
     >
       <!-- Icon and Content -->
       <div class="flex items-start gap-4 flex-1">
-        <div
-          class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center"
-        >
-          <span
-            class="material-symbols-outlined text-primary"
-            style="font-size: 44px"
-            >cookie</span
-          >
+        <div class="flex-shrink-0 flex items-center justify-center">
+          <span style="font-size: 56px">🍪</span>
         </div>
         <div class="flex-1 min-w-0">
           <h3
@@ -46,7 +50,7 @@
           [label]="'COOKIE.BANNER.ACCEPT_ALL' | translate"
           icon="pi pi-check"
           (onClick)="acceptAll()"
-          class="flex-1 sm:flex-none"
+          class="flex-1 sm:flex-none animate-bounce-button"
           [style]="{ minWidth: 'auto' }"
         ></p-button>
         <p-button

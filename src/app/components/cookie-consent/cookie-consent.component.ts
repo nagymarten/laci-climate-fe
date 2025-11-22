@@ -1,17 +1,20 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ButtonModule } from 'primeng/button';
-import { DialogModule } from 'primeng/dialog';
-import { CheckboxModule } from 'primeng/checkbox';
-import { MatIconModule } from '@angular/material/icon';
-import { CookieService, CookiePreferences } from '../../services/cookie.service';
-import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, OnDestroy, inject, signal } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { ButtonModule } from "primeng/button";
+import { DialogModule } from "primeng/dialog";
+import { CheckboxModule } from "primeng/checkbox";
+import { MatIconModule } from "@angular/material/icon";
+import {
+  CookieService,
+  CookiePreferences,
+} from "../../services/cookie.service";
+import { PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
-  selector: 'app-cookie-consent',
+  selector: "app-cookie-consent",
   standalone: true,
   imports: [
     CommonModule,
@@ -22,10 +25,10 @@ import { isPlatformBrowser } from '@angular/common';
     CheckboxModule,
     MatIconModule,
   ],
-  templateUrl: './cookie-consent.component.html',
-  styleUrl: './cookie-consent.component.css',
+  templateUrl: "./cookie-consent.component.html",
+  styleUrl: "./cookie-consent.component.css",
 })
-export class CookieConsentComponent implements OnInit {
+export class CookieConsentComponent implements OnInit, OnDestroy {
   private cookieService = inject(CookieService);
   private translate = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
@@ -43,6 +46,8 @@ export class CookieConsentComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       // Check if user has already given consent
       if (!this.cookieService.hasConsent()) {
+        // Disable body scroll
+        document.body.style.overflow = "hidden";
         // Show banner after a short delay
         setTimeout(() => {
           this.showBanner.set(true);
@@ -83,6 +88,10 @@ export class CookieConsentComponent implements OnInit {
     this.cookieService.saveConsent(this.preferences);
     this.showBanner.set(false);
     this.showSettings.set(false);
+    // Re-enable body scroll
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = "";
+    }
   }
 
   openSettings(): void {
@@ -103,5 +112,11 @@ export class CookieConsentComponent implements OnInit {
       this.preferences.necessary = true;
     }
   }
-}
 
+  ngOnDestroy(): void {
+    // Re-enable body scroll when component is destroyed
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = "";
+    }
+  }
+}
