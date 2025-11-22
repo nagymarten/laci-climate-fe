@@ -1,0 +1,48 @@
+/* Cookie consent styles */
+:host {
+  display: block;
+}
+
+/* Ensure banner is above everything */
+::ng-deep .p-dialog {
+  z-index: 10000;
+}
+
+/* Slide up animation for banner */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Improve dialog styling */
+::ng-deep .p-dialog .p-dialog-header {
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--p-border-color);
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+  padding: 1.5rem;
+}
+
+/* Better checkbox alignment */
+::ng-deep .p-checkbox {
+  margin-top: 0.25rem;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  ::ng-deep .p-dialog {
+    width: 95vw !important;
+    margin: 1rem auto;
+  }
+}

@@ -17,17 +17,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build Angular app
+      - name: Build Angular app (Production)
         run: |
-          npm run build -- --output-mode=static --base-href "/"
+          npm run build -- --configuration production --output-mode=static --base-href "/"
 
-          cp dist/laci-climate-frontend/browser/index.html dist/laci-climate-frontend/browser/404.html 
+      - name: Prepare deployment files
+        run: |
+          # Copy index.html to 404.html for GitHub Pages SPA routing
+          cp dist/laci-climate-frontend/browser/index.html dist/laci-climate-frontend/browser/404.html
 
+          # Create CNAME file for custom domain
           echo "mitrikhutes.hu" > dist/laci-climate-frontend/browser/CNAME
+
+          # Verify important files exist
+          ls -la dist/laci-climate-frontend/browser/ | grep -E "(index.html|404.html|CNAME|sitemap.xml|robots.txt)"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -35,3 +43,4 @@ jobs:
           branch: gh-pages
           folder: dist/laci-climate-frontend/browser
           clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}

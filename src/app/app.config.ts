@@ -5,7 +5,6 @@ import {
 } from "@angular/core";
 import {
   provideRouter,
-  withHashLocation,
   withRouterConfig,
 } from "@angular/router";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";

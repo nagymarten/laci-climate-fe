@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
+Allow: /hu
+Allow: /en
+Disallow: /notfound
+Disallow: /hu/notfound
+Disallow: /en/notfound
 
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://mitrikhutes.hu/sitemap.xml

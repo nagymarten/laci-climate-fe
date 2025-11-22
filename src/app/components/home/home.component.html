@@ -21,6 +21,11 @@
       <div class="flex items-center gap-2">
         <img
           [src]="getFlagUrl(selectedOption.code)"
+          [alt]="
+            selectedOption.code === 'hu'
+              ? ('IMAGES.FLAG_HU' | translate)
+              : ('IMAGES.FLAG_EN' | translate)
+          "
           style="width: 18px; height: 12px; object-fit: cover"
         />
         <div>{{ selectedOption.name }}</div>
@@ -30,6 +35,11 @@
       <div class="flex items-center gap-2">
         <img
           [src]="getFlagUrl(lang.code)"
+          [alt]="
+            lang.code === 'hu'
+              ? ('IMAGES.FLAG_HU' | translate)
+              : ('IMAGES.FLAG_EN' | translate)
+          "
           style="width: 18px; height: 12px; object-fit: cover"
         />
         <div>{{ lang.name }}</div>
@@ -38,7 +48,7 @@
   </p-select>
 </div>
 
-<div class="card flex flex-col items-center overflow-hidden pt-12">
+<div class="card flex flex-col items-center overflow-hidden pt-12 m-2">
   <h1
     pAnimateOnScroll
     class="text-4xl font-bold text-center mb-12 opacity-100"

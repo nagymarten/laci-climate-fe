@@ -29,6 +29,7 @@ import { ImageModule } from 'primeng/image';
 import { ImageCompareModule } from "primeng/imagecompare";
 import { CardModule } from "primeng/card";
 import { FooterComponent } from "../footer/footer.component";
+import { SEOService } from "../../services/seo.service";
 
 
 @Component({
@@ -60,6 +61,7 @@ import { FooterComponent } from "../footer/footer.component";
 export class HomeComponent implements OnInit {
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
+  private seoService = inject(SEOService);
 
   @ViewChild("contactFormRef") contactForm!: ElementRef;
 
@@ -88,6 +90,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.initLanguageSSRFirst();
     this.updateOrganizationChart();
+    this.updateSEO();
 
     if (isPlatformBrowser(this.platformId)) {
       const container = document.querySelector(".scrollable");
@@ -99,9 +102,10 @@ export class HomeComponent implements OnInit {
         this.doc?.documentElement?.classList.add("my-app-dark");
       }
 
-      this.translate.onLangChange.subscribe(() =>
-        this.updateOrganizationChart()
-      );
+      this.translate.onLangChange.subscribe(() => {
+        this.updateOrganizationChart();
+        this.updateSEO();
+      });
     }
   }
 
@@ -277,6 +281,25 @@ export class HomeComponent implements OnInit {
     window.scrollTo({
       top,
       behavior: "smooth",
+    });
+  }
+
+  private updateSEO(): void {
+    const lang = this.selectedLanguage?.code || "hu";
+    const currentPath = this.router.url.split("?")[0].split("#")[0];
+    
+    this.translate.get(["SEO.TITLE", "SEO.DESCRIPTION", "SEO.KEYWORDS"]).subscribe((translations) => {
+      this.seoService.updateSEO({
+        title: translations["SEO.TITLE"],
+        description: translations["SEO.DESCRIPTION"],
+        keywords: translations["SEO.KEYWORDS"],
+        url: currentPath,
+        locale: lang,
+        alternateLocales: [
+          { lang: "hu", url: "/hu" },
+          { lang: "en", url: "/en" },
+        ],
+      });
     });
   }
 }

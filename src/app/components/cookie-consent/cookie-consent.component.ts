@@ -1,0 +1,107 @@
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { CookieService, CookiePreferences } from '../../services/cookie.service';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+@Component({
+  selector: 'app-cookie-consent',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    TranslateModule,
+    ButtonModule,
+    DialogModule,
+    CheckboxModule,
+    MatIconModule,
+  ],
+  templateUrl: './cookie-consent.component.html',
+  styleUrl: './cookie-consent.component.css',
+})
+export class CookieConsentComponent implements OnInit {
+  private cookieService = inject(CookieService);
+  private translate = inject(TranslateService);
+  private platformId = inject(PLATFORM_ID);
+
+  showBanner = signal(false);
+  showSettings = signal(false);
+
+  preferences: CookiePreferences = {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+  };
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Check if user has already given consent
+      if (!this.cookieService.hasConsent()) {
+        // Show banner after a short delay
+        setTimeout(() => {
+          this.showBanner.set(true);
+        }, 1000);
+      } else {
+        // Load preferences and apply them
+        this.preferences = this.cookieService.getPreferences();
+        this.cookieService.saveConsent(this.preferences);
+      }
+    }
+  }
+
+  acceptAll(): void {
+    this.preferences = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+    };
+    this.saveAndClose();
+  }
+
+  acceptNecessary(): void {
+    this.preferences = {
+      necessary: true,
+      analytics: false,
+      marketing: false,
+    };
+    this.saveAndClose();
+  }
+
+  savePreferences(): void {
+    // Necessary cookies are always enabled
+    this.preferences.necessary = true;
+    this.saveAndClose();
+  }
+
+  private saveAndClose(): void {
+    this.cookieService.saveConsent(this.preferences);
+    this.showBanner.set(false);
+    this.showSettings.set(false);
+  }
+
+  openSettings(): void {
+    // Load current preferences
+    if (this.cookieService.hasConsent()) {
+      this.preferences = this.cookieService.getPreferences();
+    }
+    this.showSettings.set(true);
+  }
+
+  closeSettings(): void {
+    this.showSettings.set(false);
+  }
+
+  // Prevent unchecking necessary cookies
+  onNecessaryChange(event: any): void {
+    if (!event.checked) {
+      this.preferences.necessary = true;
+    }
+  }
+}
+
