@@ -100,5 +100,42 @@
   },
   "FOOTER": {
     "ALL_RIGHTS": "Minden jog fenntartva"
+  },
+  "SEO": {
+    "TITLE": "Mitrik Hűtés – Klímaszerelés és Hőszivattyú Szeged környékén",
+    "DESCRIPTION": "Klímaszerelés, hőszivattyúk és központi fűtés teljes körű kivitelezése és karbantartása Szegeden és környékén. Ingyenes felmérés, gyors ajánlat. 15 év tapasztalat, 500+ elégedett ügyfél.",
+    "KEYWORDS": "klímaszerelés Szeged, hőszivattyú telepítés, split klíma, multi split, parapet klíma, mennyezeti kazettás, klíma karbantartás, központi fűtés, energiatakarékos megoldások, klímaszerelő Szeged, hőszivattyú szerelés, klíma telepítés árak, ingyenes felmérés Szeged"
+  },
+  "IMAGES": {
+    "FLAG_HU": "Magyar zászló",
+    "FLAG_EN": "Angol zászló"
+  },
+  "COOKIE": {
+    "BANNER": {
+      "TITLE": "Cookie-k használata",
+      "DESCRIPTION": "Weboldalunk cookie-kat használ a felhasználói élmény javítása és a weboldal működésének biztosítása érdekében. A részletekért és a beállításokért kattints a",
+      "SETTINGS_LINK": "Cookie beállítások",
+      "ACCEPT_ALL": "Összes elfogadása",
+      "ACCEPT_NECESSARY": "Csak szükséges"
+    },
+    "SETTINGS": {
+      "TITLE": "Cookie beállítások",
+      "DESCRIPTION": "Válaszd ki, mely cookie-kat szeretnéd engedélyezni. A szükséges cookie-k mindig aktívak, mert elengedhetetlenek a weboldal működéséhez.",
+      "NECESSARY": {
+        "TITLE": "Szükséges cookie-k",
+        "DESCRIPTION": "Ezek a cookie-k elengedhetetlenek a weboldal működéséhez. Nem kapcsolhatók ki."
+      },
+      "ANALYTICS": {
+        "TITLE": "Analitikai cookie-k",
+        "DESCRIPTION": "Ezek a cookie-k segítenek megérteni, hogyan használják a látogatók a weboldalt (pl. Google Analytics)."
+      },
+      "MARKETING": {
+        "TITLE": "Marketing cookie-k",
+        "DESCRIPTION": "Ezek a cookie-k a személyre szabott hirdetések és marketing kampányok követésére szolgálnak."
+      },
+      "ALWAYS_ACTIVE": "Mindig aktív",
+      "SAVE": "Beállítások mentése",
+      "CANCEL": "Mégse"
+    }
   }
 }

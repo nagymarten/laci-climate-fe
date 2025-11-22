@@ -100,5 +100,42 @@
   },
   "FOOTER": {
     "ALL_RIGHTS": "All rights reserved"
+  },
+  "SEO": {
+    "TITLE": "Mitrik Hűtés – Air Conditioning and Heat Pumps in Szeged",
+    "DESCRIPTION": "Air conditioning, heat pumps, and central heating installation and maintenance in Szeged and surrounding areas. Free assessment, quick quote. 15 years of experience, 500+ satisfied clients.",
+    "KEYWORDS": "air conditioning Szeged, heat pump installation, split air conditioner, multi split, parapet air conditioner, ceiling cassette, AC maintenance, central heating, energy efficient solutions, air conditioning installer Szeged, heat pump installation, AC installation prices, free assessment Szeged"
+  },
+  "IMAGES": {
+    "FLAG_HU": "Hungarian flag",
+    "FLAG_EN": "English flag"
+  },
+  "COOKIE": {
+    "BANNER": {
+      "TITLE": "Cookie Usage",
+      "DESCRIPTION": "Our website uses cookies to improve user experience and ensure the website functions properly. For details and settings, click",
+      "SETTINGS_LINK": "Cookie Settings",
+      "ACCEPT_ALL": "Accept All",
+      "ACCEPT_NECESSARY": "Necessary Only"
+    },
+    "SETTINGS": {
+      "TITLE": "Cookie Settings",
+      "DESCRIPTION": "Choose which cookies you want to enable. Necessary cookies are always active as they are essential for the website to function.",
+      "NECESSARY": {
+        "TITLE": "Necessary Cookies",
+        "DESCRIPTION": "These cookies are essential for the website to function. They cannot be disabled."
+      },
+      "ANALYTICS": {
+        "TITLE": "Analytics Cookies",
+        "DESCRIPTION": "These cookies help us understand how visitors use the website (e.g., Google Analytics)."
+      },
+      "MARKETING": {
+        "TITLE": "Marketing Cookies",
+        "DESCRIPTION": "These cookies are used for personalized advertising and marketing campaign tracking."
+      },
+      "ALWAYS_ACTIVE": "Always Active",
+      "SAVE": "Save Settings",
+      "CANCEL": "Cancel"
+    }
   }
 }
