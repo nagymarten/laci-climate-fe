@@ -1,47 +1,143 @@
-<div class="scrollable flex justify-end items-center gap-4 p-4 border-bottom">
+<div
+  class="scrollable flex justify-between items-center gap-4 p-4 border-bottom bg-surface-50 dark:bg-surface-800"
+>
+  <!-- Mobile Menu Button -->
   <p-button
-    [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
-    (onClick)="toggleDark()"
+    icon="pi pi-bars"
+    variant="text"
+    (onClick)="drawerVisible.set(true)"
+    class="md:hidden"
+    [title]="'HEADER.NAVIGATION' | translate"
   ></p-button>
 
-  <p-select
-    #languageSelectRef
-    [options]="languages"
-    [(ngModel)]="selectedLanguage"
-    optionLabel="name"
-    [filter]="false"
-    [showClear]="false"
-    placeholder="Select Language"
-    class="w-full md:w-40"
-    (onChange)="onLanguageChange($event, languageSelectRef)"
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex gap-2 items-center">
+    <p-button
+      [label]="'SERVICES.TITLE' | translate"
+      icon="pi pi-wrench"
+      variant="text"
+      [raised]="true"
+      (onClick)="scrollToSection('szolgaltatasok')"
+    ></p-button>
+    <p-button
+      [label]="'CLIENT_TYPES.TITLE' | translate"
+      icon="pi pi-users"
+      variant="text"
+      [raised]="true"
+      (onClick)="scrollToSection('ugyfeltipusok')"
+    ></p-button>
+    <p-button
+      [label]="'CONTACT.TITLE' | translate"
+      icon="pi pi-envelope"
+      variant="text"
+      [raised]="true"
+      (onClick)="scrollToSection('kapcsolat')"
+    ></p-button>
+    <p-button
+      [label]="getFaqLabel()"
+      icon="pi pi-question-circle"
+      variant="text"
+      [raised]="true"
+      (onClick)="scrollToSection('gyakori-kerdesek')"
+    ></p-button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <p-drawer
+    [(visible)]="drawerVisible"
+    position="left"
+    [modal]="true"
+    styleClass="w-80"
   >
-    <ng-template #selectedItem let-selectedOption>
-      <div class="flex items-center gap-2">
-        <img
-          [src]="getFlagUrl(selectedOption.code)"
-          [alt]="
-            selectedOption.code === 'hu'
-              ? ('IMAGES.FLAG_HU' | translate)
-              : ('IMAGES.FLAG_EN' | translate)
-          "
-          style="width: 18px; height: 12px; object-fit: cover"
-        />
-        <div>{{ selectedOption.name }}</div>
+    <ng-template #header>
+      <div class="flex items-center justify-between w-full">
+        <span class="text-xl font-bold">{{
+          "HEADER.NAVIGATION" | translate
+        }}</span>
       </div>
     </ng-template>
-    <ng-template let-lang #item>
-      <div class="flex items-center gap-2">
-        <img
-          [src]="getFlagUrl(lang.code)"
-          [alt]="
-            lang.code === 'hu'
-              ? ('IMAGES.FLAG_HU' | translate)
-              : ('IMAGES.FLAG_EN' | translate)
-          "
-          style="width: 18px; height: 12px; object-fit: cover"
-        />
-        <div>{{ lang.name }}</div>
-      </div>
-    </ng-template>
-  </p-select>
+
+    <div class="flex flex-col gap-2 py-4">
+      <p-button
+        [label]="'SERVICES.TITLE' | translate"
+        icon="pi pi-wrench"
+        variant="text"
+        [raised]="true"
+        styleClass="w-full justify-start"
+        (onClick)="scrollToSection('szolgaltatasok')"
+      ></p-button>
+      <p-button
+        [label]="'CLIENT_TYPES.TITLE' | translate"
+        icon="pi pi-users"
+        variant="text"
+        [raised]="true"
+        styleClass="w-full justify-start"
+        (onClick)="scrollToSection('ugyfeltipusok')"
+      ></p-button>
+      <p-button
+        [label]="'CONTACT.TITLE' | translate"
+        icon="pi pi-envelope"
+        variant="text"
+        [raised]="true"
+        styleClass="w-full justify-start"
+        (onClick)="scrollToSection('kapcsolat')"
+      ></p-button>
+      <p-button
+        [label]="getFaqLabel()"
+        icon="pi pi-question-circle"
+        variant="text"
+        [raised]="true"
+        styleClass="w-full justify-start"
+        (onClick)="scrollToSection('gyakori-kerdesek')"
+      ></p-button>
+    </div>
+  </p-drawer>
+
+  <div class="flex gap-4 items-center">
+    <p-button
+      [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+      (onClick)="toggleDark()"
+    ></p-button>
+
+    <p-select
+      #languageSelectRef
+      [options]="languages"
+      [(ngModel)]="selectedLanguage"
+      optionLabel="name"
+      [filter]="false"
+      [showClear]="false"
+      [placeholder]="'HEADER.SELECT_LANGUAGE' | translate"
+      class="w-full md:w-40"
+      (onChange)="onLanguageChange($event, languageSelectRef)"
+    >
+      <ng-template #selectedItem let-selectedOption>
+        <div class="flex items-center gap-2">
+          <img
+            [src]="getFlagUrl(selectedOption.code)"
+            [alt]="
+              selectedOption.code === 'hu'
+                ? ('IMAGES.FLAG_HU' | translate)
+                : ('IMAGES.FLAG_EN' | translate)
+            "
+            style="width: 18px; height: 12px; object-fit: cover"
+          />
+          <div>{{ selectedOption.name }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-lang #item>
+        <div class="flex items-center gap-2">
+          <img
+            [src]="getFlagUrl(lang.code)"
+            [alt]="
+              lang.code === 'hu'
+                ? ('IMAGES.FLAG_HU' | translate)
+                : ('IMAGES.FLAG_EN' | translate)
+            "
+            style="width: 18px; height: 12px; object-fit: cover"
+          />
+          <div>{{ lang.name }}</div>
+        </div>
+      </ng-template>
+    </p-select>
+  </div>
 </div>

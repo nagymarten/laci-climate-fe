@@ -10,6 +10,7 @@ import { CommonModule } from "@angular/common";
 import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { ButtonModule } from "primeng/button";
 import { SelectModule, Select } from "primeng/select";
+import { DrawerModule } from "primeng/drawer";
 import { FormsModule } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { isPlatformBrowser, DOCUMENT } from "@angular/common";
@@ -22,6 +23,7 @@ import { CookieService } from "../../services/cookie.service";
     CommonModule,
     ButtonModule,
     SelectModule,
+    DrawerModule,
     FormsModule,
     TranslateModule,
   ],
@@ -37,6 +39,7 @@ export class HeaderComponent implements OnInit {
   private cookieService = inject(CookieService);
 
   isDark = signal(false);
+  drawerVisible = signal(false);
   languages = [
     { name: "English", code: "en" },
     { name: "Magyar", code: "hu" },
@@ -221,5 +224,31 @@ export class HeaderComponent implements OnInit {
     if (code === "hu") return "https://flagcdn.com/hu.svg";
     if (code === "de") return "https://flagcdn.com/de.svg";
     return "https://flagcdn.com/unknown.svg";
+  }
+
+  scrollToSection(sectionId: string): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Close drawer on mobile after clicking
+      this.drawerVisible.set(false);
+
+      const element = this.doc.getElementById(sectionId);
+      if (element) {
+        const headerHeight = 80; // Approximate header height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }
+
+  getFaqLabel(): string {
+    const currentLang =
+      this.translate.currentLang || this.translate.defaultLang || "hu";
+    return currentLang === "hu" ? "Gyik" : "FAQ";
   }
 }

@@ -16,8 +16,7 @@ import { FormsModule } from "@angular/forms";
 import { AnimateOnScrollModule } from "primeng/animateonscroll";
 import { AvatarModule } from "primeng/avatar";
 import { ScrollTopModule } from "primeng/scrolltop";
-import { OrganizationChartModule } from "primeng/organizationchart";
-import { MessageService, TreeNode } from "primeng/api";
+import { MessageService } from "primeng/api";
 import { MatIconModule } from "@angular/material/icon";
 import { InputTextModule } from "primeng/inputtext";
 import { TextareaModule } from "primeng/textarea";
@@ -25,13 +24,12 @@ import emailjs from "@emailjs/browser";
 import { Toast } from "primeng/toast";
 import { Router, ActivatedRoute } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
-import { ImageModule } from 'primeng/image';
+import { ImageModule } from "primeng/image";
 import { ImageCompareModule } from "primeng/imagecompare";
 import { CardModule } from "primeng/card";
 import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { SEOService } from "../../services/seo.service";
-
 
 @Component({
   selector: "app-home",
@@ -44,7 +42,6 @@ import { SEOService } from "../../services/seo.service";
     AnimateOnScrollModule,
     AvatarModule,
     ScrollTopModule,
-    OrganizationChartModule,
     MatIconModule,
     FormsModule,
     InputTextModule,
@@ -78,11 +75,9 @@ export class HomeComponent implements OnInit {
   message = "";
   email = "";
   phone = "";
-  data: TreeNode[] = [];
   showScrollHint = true;
 
   ngOnInit(): void {
-    this.updateOrganizationChart();
     this.updateSEO();
 
     if (isPlatformBrowser(this.platformId)) {
@@ -92,7 +87,6 @@ export class HomeComponent implements OnInit {
 
     // Listen to language changes from header component
     this.translate.onLangChange.subscribe(() => {
-      this.updateOrganizationChart();
       this.updateSEO();
     });
   }
@@ -113,31 +107,6 @@ export class HomeComponent implements OnInit {
       }, 1200);
     }
   }
-
-
-  private updateOrganizationChart(): void {
-    this.translate
-      .get([
-        "ORGANIZATION.TITLE",
-        "ORGANIZATION.SPLIT",
-        "ORGANIZATION.PARAPET",
-        "ORGANIZATION.CASSETTE",
-      ])
-      .subscribe((tr) => {
-        this.data = [
-          {
-            label: tr["ORGANIZATION.TITLE"],
-            expanded: true,
-            children: [
-              { label: tr["ORGANIZATION.SPLIT"], expanded: true },
-              { label: tr["ORGANIZATION.PARAPET"], expanded: true },
-              { label: tr["ORGANIZATION.CASSETTE"], expanded: true },
-            ],
-          },
-        ];
-      });
-  }
-
 
   sendMessage() {
     const localizedTitles = {
@@ -220,21 +189,24 @@ export class HomeComponent implements OnInit {
   }
 
   private updateSEO(): void {
-    const currentLang = this.translate.currentLang || this.translate.defaultLang || "hu";
+    const currentLang =
+      this.translate.currentLang || this.translate.defaultLang || "hu";
     const currentPath = this.router.url.split("?")[0].split("#")[0];
-    
-    this.translate.get(["SEO.TITLE", "SEO.DESCRIPTION", "SEO.KEYWORDS"]).subscribe((translations) => {
-      this.seoService.updateSEO({
-        title: translations["SEO.TITLE"],
-        description: translations["SEO.DESCRIPTION"],
-        keywords: translations["SEO.KEYWORDS"],
-        url: currentPath,
-        locale: currentLang,
-        alternateLocales: [
-          { lang: "hu", url: "/hu" },
-          { lang: "en", url: "/en" },
-        ],
+
+    this.translate
+      .get(["SEO.TITLE", "SEO.DESCRIPTION", "SEO.KEYWORDS"])
+      .subscribe((translations) => {
+        this.seoService.updateSEO({
+          title: translations["SEO.TITLE"],
+          description: translations["SEO.DESCRIPTION"],
+          keywords: translations["SEO.KEYWORDS"],
+          url: currentPath,
+          locale: currentLang,
+          alternateLocales: [
+            { lang: "hu", url: "/hu" },
+            { lang: "en", url: "/en" },
+          ],
+        });
       });
-    });
   }
 }

@@ -7,6 +7,8 @@
   },
   "ORGANIZATION": {
     "TITLE": "Climate Installation",
+    "SUBTITLE": "Air conditioners with cooling and heating functions",
+    "DESCRIPTION": "Professional installation, commissioning and maintenance for all needs. We guarantee quality workmanship. The air conditioners can operate in both cooling and heating modes, providing comfortable temperatures year-round. We offer free on-site surveys to find the best solution for you. We offer wall-mounted split, parapet and ceiling cassette systems. We provide warranty after every installation and you can also sign annual maintenance contracts with us. We work quickly and reliably in Szeged and the surrounding area.",
     "SPLIT": "Wall-mounted split",
     "PARAPET": "Parapet",
     "CASSETTE": "Ceiling cassette"
@@ -47,7 +49,8 @@
     },
     "MAINTENANCE": {
       "TITLE": "Maintenance",
-      "DESCRIPTION": "Maintenance description."
+      "SUBTITLE": "Professional maintenance for cooling and heating systems",
+      "DESCRIPTION": "Regular maintenance ensures optimal operation and long lifespan of your air conditioning system, whether it operates in cooling or heating mode. It is recommended to have the system inspected by a professional at least once a year. Our services include cleaning heat exchangers, checking refrigerant levels, replacing filters and calibrating electronics. With our maintenance contracts, you can ensure continuous operation of your system at favorable prices."
     }
   },
   "CLIENT_TYPES": {
@@ -143,6 +146,10 @@
         "ANSWER": "Yes, the on-site survey is completely free in Szeged and the surrounding area. During the survey, we inspect the rooms, calculate the required capacity, and prepare a personalized quote for the optimal air conditioning system for you."
       }
     }
+  },
+  "HEADER": {
+    "NAVIGATION": "Navigation",
+    "SELECT_LANGUAGE": "Select Language"
   },
   "FOOTER": {
     "ALL_RIGHTS": "All rights reserved",

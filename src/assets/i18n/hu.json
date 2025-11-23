@@ -7,6 +7,8 @@
   },
   "ORGANIZATION": {
     "TITLE": "Klímaszerelés",
+    "SUBTITLE": "Hűtő és fűtő funkcióval rendelkező klímák",
+    "DESCRIPTION": "Szakszerű telepítés, beüzemelés és karbantartás minden igényhez. Garantáljuk a minőségi munkavégzést. A klímák akár hűtő, akár fűtő funkcióval rendelkeznek, így egész évben kényelmes hőmérsékletet biztosítanak. Ingyenes helyszíni felmérést kínálunk, hogy megtaláljuk az Ön számára legmegfelelőbb megoldást. Kínálunk oldalfali split, parapet és mennyezeti kazettás rendszereket is. Minden telepítés után garanciát vállalunk, és éves karbantartási szerződéseket is köthet velünk. Szeged és környékén gyorsan és megbízhatóan dolgozunk.",
     "SPLIT": "Oldalfali split",
     "PARAPET": "Parapet",
     "CASSETTE": "Mennyezeti kazettás"
@@ -47,7 +49,8 @@
     },
     "MAINTENANCE": {
       "TITLE": "Karbantartás",
-      "DESCRIPTION": "Szakszerű átvizsgálás és tisztítás."
+      "SUBTITLE": "Hűtő és fűtő rendszerek szakszerű karbantartása",
+      "DESCRIPTION": "Rendszeres karbantartással biztosítható a klíma rendszer optimális működése és hosszú élettartama, akár hűtő, akár fűtő módban működik. Évente legalább egyszer javasolt szakemberrel átvizsgáltatni a rendszert. Szolgáltatásaink közé tartozik a hőcserélők tisztítása, a hűtőközeg ellenőrzése, a szűrők cseréje és az elektronika kalibrálása. Karbantartási szerződéseinkkel kedvező áron biztosítható a rendszer folyamatos működése."
     }
   },
   "CLIENT_TYPES": {
@@ -143,6 +146,10 @@
         "ANSWER": "Igen, a helyszíni felmérés teljesen ingyenes Szegeden és környékén. A felmérés során megnézzük a helyiségeket, kiszámoljuk a szükséges teljesítményt, és egyedi ajánlatot készítünk a számodra optimális klíma rendszerre."
       }
     }
+  },
+  "HEADER": {
+    "NAVIGATION": "Navigáció",
+    "SELECT_LANGUAGE": "Nyelv kiválasztása"
   },
   "FOOTER": {
     "ALL_RIGHTS": "Minden jog fenntartva",
