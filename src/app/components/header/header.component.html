@@ -1,0 +1,47 @@
+<div class="scrollable flex justify-end items-center gap-4 p-4 border-bottom">
+  <p-button
+    [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+    (onClick)="toggleDark()"
+  ></p-button>
+
+  <p-select
+    #languageSelectRef
+    [options]="languages"
+    [(ngModel)]="selectedLanguage"
+    optionLabel="name"
+    [filter]="false"
+    [showClear]="false"
+    placeholder="Select Language"
+    class="w-full md:w-40"
+    (onChange)="onLanguageChange($event, languageSelectRef)"
+  >
+    <ng-template #selectedItem let-selectedOption>
+      <div class="flex items-center gap-2">
+        <img
+          [src]="getFlagUrl(selectedOption.code)"
+          [alt]="
+            selectedOption.code === 'hu'
+              ? ('IMAGES.FLAG_HU' | translate)
+              : ('IMAGES.FLAG_EN' | translate)
+          "
+          style="width: 18px; height: 12px; object-fit: cover"
+        />
+        <div>{{ selectedOption.name }}</div>
+      </div>
+    </ng-template>
+    <ng-template let-lang #item>
+      <div class="flex items-center gap-2">
+        <img
+          [src]="getFlagUrl(lang.code)"
+          [alt]="
+            lang.code === 'hu'
+              ? ('IMAGES.FLAG_HU' | translate)
+              : ('IMAGES.FLAG_EN' | translate)
+          "
+          style="width: 18px; height: 12px; object-fit: cover"
+        />
+        <div>{{ lang.name }}</div>
+      </div>
+    </ng-template>
+  </p-select>
+</div>

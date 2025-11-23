@@ -91,13 +91,37 @@ export class CookieConsentComponent implements OnInit, OnDestroy {
     // Re-enable body scroll
     if (isPlatformBrowser(this.platformId)) {
       document.body.style.overflow = "";
+
+      // If no theme cookie is set, set it from browser preference
+      const existingTheme = this.cookieService.getCookieTheme();
+      if (existingTheme === null) {
+        const browserTheme = this.cookieService.getBrowserTheme();
+        this.cookieService.setTheme(browserTheme);
+
+        // Apply the theme to the document
+        if (browserTheme) {
+          document.documentElement.classList.add("my-app-dark");
+        } else {
+          document.documentElement.classList.remove("my-app-dark");
+        }
+      }
+
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new Event("cookieConsentChanged"));
     }
   }
 
   openSettings(): void {
-    // Load current preferences
+    // Load current preferences if consent exists, otherwise use defaults
     if (this.cookieService.hasConsent()) {
       this.preferences = this.cookieService.getPreferences();
+    } else {
+      // Reset to default preferences if no consent
+      this.preferences = {
+        necessary: true,
+        analytics: false,
+        marketing: false,
+      };
     }
     this.showSettings.set(true);
   }
@@ -107,7 +131,7 @@ export class CookieConsentComponent implements OnInit, OnDestroy {
   }
 
   // Prevent unchecking necessary cookies
-  onNecessaryChange(event: any): void {
+  onNecessaryChange(event: { checked: boolean }): void {
     if (!event.checked) {
       this.preferences.necessary = true;
     }

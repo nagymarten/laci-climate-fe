@@ -1,10 +1,7 @@
-<!-- Overlay to block interactions until cookies are accepted -->
+<!-- Overlay for visual indication (does not block clicks, only scrolling is disabled) -->
 @if (showBanner()) {
 <div
-  class="fixed inset-0 z-40 bg-black/20 pointer-events-auto"
-  (click)="$event.stopPropagation()"
-  (mousedown)="$event.stopPropagation()"
-  (touchstart)="$event.stopPropagation()"
+  class="fixed inset-0 z-40 bg-black/20 pointer-events-none"
 ></div>
 }
 

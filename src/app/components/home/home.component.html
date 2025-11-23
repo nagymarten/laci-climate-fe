@@ -1,52 +1,6 @@
 <p-toast />
 
-<div class="scrollable flex justify-end items-center gap-4 p-4 border-bottom">
-  <p-button
-    [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
-    (onClick)="toggleDark()"
-  ></p-button>
-
-  <p-select
-    #languageSelectRef
-    [options]="languages"
-    [(ngModel)]="selectedLanguage"
-    optionLabel="name"
-    [filter]="false"
-    [showClear]="false"
-    placeholder="Select Language"
-    class="w-full md:w-40"
-    (onChange)="onLanguageChange($event, languageSelectRef)"
-  >
-    <ng-template #selectedItem let-selectedOption>
-      <div class="flex items-center gap-2">
-        <img
-          [src]="getFlagUrl(selectedOption.code)"
-          [alt]="
-            selectedOption.code === 'hu'
-              ? ('IMAGES.FLAG_HU' | translate)
-              : ('IMAGES.FLAG_EN' | translate)
-          "
-          style="width: 18px; height: 12px; object-fit: cover"
-        />
-        <div>{{ selectedOption.name }}</div>
-      </div>
-    </ng-template>
-    <ng-template let-lang #item>
-      <div class="flex items-center gap-2">
-        <img
-          [src]="getFlagUrl(lang.code)"
-          [alt]="
-            lang.code === 'hu'
-              ? ('IMAGES.FLAG_HU' | translate)
-              : ('IMAGES.FLAG_EN' | translate)
-          "
-          style="width: 18px; height: 12px; object-fit: cover"
-        />
-        <div>{{ lang.name }}</div>
-      </div>
-    </ng-template>
-  </p-select>
-</div>
+<app-header></app-header>
 
 <div class="card flex flex-col items-center overflow-hidden pt-12 m-2">
   <h1
@@ -122,12 +76,12 @@
       pAnimateOnScroll
       enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-      class="flex flex-col border border-primary-200 shadow-lg items-center w-fit rounded-2xl p-8 gap-4"
+      class="flex flex-col border border-primary-200 shadow-lg items-center w-fit rounded-2xl pt-4 gap-4"
     >
       <div
-        class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center"
+        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
       >
-        <mat-icon aria-hidden="false" fontIcon="ac_unit"></mat-icon>
+        <span class="text-4xl">❄️</span>
       </div>
       <p-organization-chart class="" [value]="data" [collapsible]="true">
         <ng-template let-node pTemplate="default">
@@ -145,13 +99,9 @@
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div
-        class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center"
+        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
       >
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="home"
-        ></mat-icon>
+        <span class="text-3xl">🏠</span>
       </div>
       <span class="text-2xl font-bold">{{
         "SERVICES.MAINTENANCE.TITLE" | translate
@@ -181,9 +131,9 @@
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div
-        class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center"
+        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
       >
-        <i class="pi pi-user !text-2xl"></i>
+        <span class="text-3xl">👤</span>
       </div>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.PRIVATE.TITLE" | translate
@@ -200,9 +150,9 @@
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div
-        class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center"
+        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
       >
-        <i class="pi pi-users !text-2xl"></i>
+        <span class="text-3xl">👥</span>
       </div>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.COMMUNITY.TITLE" | translate
@@ -219,9 +169,9 @@
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div
-        class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center"
+        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
       >
-        <i class="pi pi-building !text-2xl"></i>
+        <span class="text-3xl">🏢</span>
       </div>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.BUSINESS.TITLE" | translate
@@ -250,10 +200,8 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center"
-      >
-        <i class="pi pi-globe !text-2xl"></i>
+      <div class="rounded-full w-12 h-12 flex items-center justify-center">
+        <span class="text-4xl">🌍</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.ECO.TITLE" | translate
@@ -269,10 +217,8 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center"
-      >
-        <i class="pi pi-dollar !text-2xl"></i>
+      <div class="rounded-full w-12 h-12 flex items-center justify-center">
+        <span class="text-4xl">💶</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.ECONOMY.TITLE" | translate
@@ -288,10 +234,8 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col bg-indigo-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center"
-      >
-        <i class="pi pi-wifi !text-2xl"></i>
+      <div class="rounded-full w-12 h-12 flex items-center justify-center">
+        <span class="text-4xl">🛜</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.COMFORT.TITLE" | translate

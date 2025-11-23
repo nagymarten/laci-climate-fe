@@ -1,9 +1,21 @@
 <div class="p-2flex items-center justify-center surface-border">
-  <div class="flex items-center justify-center m-5">
+  <div class="flex flex-col items-center justify-center m-5 gap-2">
     <p
-      class="text-center text-muted-color text-sm sm:text-base mb-4 px-2 sm:px-0"
+      class="text-center text-muted-color text-sm sm:text-base mb-2 px-2 sm:px-0"
     >
       © {{ currentYear }} Mitrik László — {{ "FOOTER.ALL_RIGHTS" | translate }}.
+    </p>
+    <p class="text-center text-muted-color text-xs sm:text-sm px-2 sm:px-0 inline-flex items-center gap-1.5">
+      <i class="pi pi-github"></i>
+      {{ "FOOTER.MADE_BY" | translate }}
+      <a
+        [href]="githubUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-primary hover:text-primary-600 dark:hover:text-primary-400 transition-colors underline hover:no-underline"
+      >
+        nagymarten
+      </a>
     </p>
   </div>
 </div>

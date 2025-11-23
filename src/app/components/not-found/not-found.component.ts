@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 import { Meta, Title } from "@angular/platform-browser";
+import { CookieService } from "../../services/cookie.service";
 
 type Lang = "hu" | "en";
 const SUPPORTED: Lang[] = ["hu", "en"];
@@ -24,6 +25,7 @@ export class NotFoundComponent implements OnInit {
   private doc = inject(DOCUMENT);
   private title = inject(Title);
   private meta = inject(Meta);
+  private cookieService = inject(CookieService);
 
   lang: Lang = "hu";
 
@@ -35,26 +37,33 @@ export class NotFoundComponent implements OnInit {
   }
 
   private initLanguageMemoryFirst(): void {
+    const path = this.router.url.split("#")[0].split("?")[0];
+    const seg = path.split("/").filter(Boolean)[0]?.toLowerCase();
     let chosen: Lang | null = null;
 
-    if (isPlatformBrowser(this.platformId)) {
-      const saved = (localStorage.getItem("language") || "").toLowerCase();
-      if (SUPPORTED.includes(saved as Lang)) {
-        chosen = saved as Lang;
-      }
-      const darkMode = localStorage.getItem("isDarkMode");
-      if (darkMode === "true") {
-        this.isDark.set(true);
-        this.doc?.documentElement?.classList.add("my-app-dark");
+    // Priority: 1. URL language, 2. Cookie (if no URL), 3. Browser language (if no cookie)
+    if (seg && (seg === "en" || seg === "hu")) {
+      // URL language takes highest priority
+      chosen = seg as Lang;
+    } else if (isPlatformBrowser(this.platformId)) {
+      // 1. Check cookie/localStorage first
+      const cookieLang = this.cookieService.getCookieLanguage();
+      if (cookieLang && SUPPORTED.includes(cookieLang.toLowerCase() as Lang)) {
+        chosen = cookieLang.toLowerCase() as Lang;
+      } else {
+        // 2. Check browser language
+        const browserLang = this.cookieService.getBrowserLanguage();
+        if (browserLang && SUPPORTED.includes(browserLang.toLowerCase() as Lang)) {
+          chosen = browserLang.toLowerCase() as Lang;
+        }
       }
     }
 
     if (!chosen) {
       chosen = "hu";
       if (isPlatformBrowser(this.platformId)) {
-        try {
-          localStorage.setItem("language", chosen);
-        } catch {}
+        // Save language to cookies (if consent given) or localStorage
+        this.cookieService.setLanguage(chosen);
       }
     }
 
@@ -64,14 +73,26 @@ export class NotFoundComponent implements OnInit {
     this.translate.use(this.lang);
     this.doc?.documentElement?.setAttribute("lang", this.lang);
 
-    const path = this.router.url.split("#")[0].split("?")[0];
-    const seg = path.split("/").filter(Boolean)[0]?.toLowerCase();
+    // Navigate to correct language if URL doesn't match
     if (seg !== this.lang) {
       this.router.navigate(["/", this.lang, "notfound"], {
         replaceUrl: true,
         queryParamsHandling: "preserve",
         fragment: this.route.snapshot.fragment ?? undefined,
       });
+    }
+
+    // Get theme: cookie first, then browser preference
+    if (isPlatformBrowser(this.platformId)) {
+      const darkMode = this.cookieService.getTheme();
+      if (darkMode !== null) {
+        this.isDark.set(darkMode);
+        if (darkMode) {
+          this.doc?.documentElement?.classList.add("my-app-dark");
+        } else {
+          this.doc?.documentElement?.classList.remove("my-app-dark");
+        }
+      }
     }
   }
 

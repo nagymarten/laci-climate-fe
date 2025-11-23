@@ -24,11 +24,12 @@ import { TextareaModule } from "primeng/textarea";
 import emailjs from "@emailjs/browser";
 import { Toast } from "primeng/toast";
 import { Router, ActivatedRoute } from "@angular/router";
-import { isPlatformBrowser, DOCUMENT } from "@angular/common";
+import { isPlatformBrowser } from "@angular/common";
 import { ImageModule } from 'primeng/image';
 import { ImageCompareModule } from "primeng/imagecompare";
 import { CardModule } from "primeng/card";
 import { FooterComponent } from "../footer/footer.component";
+import { HeaderComponent } from "../header/header.component";
 import { SEOService } from "../../services/seo.service";
 
 
@@ -53,6 +54,7 @@ import { SEOService } from "../../services/seo.service";
     ImageCompareModule,
     CardModule,
     FooterComponent,
+    HeaderComponent,
   ],
   providers: [MessageService],
   templateUrl: "./home.component.html",
@@ -68,9 +70,7 @@ export class HomeComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private platformId = inject(PLATFORM_ID);
-  private doc = inject(DOCUMENT);
 
-  isDark = signal(false);
   scrollOpacity = 1;
   isVisible = true;
 
@@ -78,35 +78,23 @@ export class HomeComponent implements OnInit {
   message = "";
   email = "";
   phone = "";
-  languages = [
-    { name: "English", code: "en" },
-    { name: "Magyar", code: "hu" },
-  ];
-
-  selectedLanguage: any;
   data: TreeNode[] = [];
   showScrollHint = true;
 
   ngOnInit(): void {
-    this.initLanguageSSRFirst();
     this.updateOrganizationChart();
     this.updateSEO();
 
     if (isPlatformBrowser(this.platformId)) {
       const container = document.querySelector(".scrollable");
       if (container) (container as HTMLElement).scrollTop = 0;
-
-      const darkMode = localStorage.getItem("isDarkMode");
-      if (darkMode === "true") {
-        this.isDark.set(true);
-        this.doc?.documentElement?.classList.add("my-app-dark");
-      }
-
-      this.translate.onLangChange.subscribe(() => {
-        this.updateOrganizationChart();
-        this.updateSEO();
-      });
     }
+
+    // Listen to language changes from header component
+    this.translate.onLangChange.subscribe(() => {
+      this.updateOrganizationChart();
+      this.updateSEO();
+    });
   }
 
   @HostListener("window:scroll", [])
@@ -126,20 +114,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private initLanguageSSRFirst(): void {
-    const path = this.router.url.split("?")[0].split("#")[0];
-    const seg = path.split("/").filter(Boolean)[0];
-    const urlLang: "hu" | "en" = seg === "en" ? "en" : "hu";
-
-    this.translate.setDefaultLang(urlLang);
-    this.translate.use(urlLang);
-    this.selectedLanguage = this.languages.find((l) => l.code === urlLang);
-
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem("language", urlLang);
-      this.doc.documentElement.lang = urlLang;
-    }
-  }
 
   private updateOrganizationChart(): void {
     this.translate
@@ -164,38 +138,6 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  toggleDark() {
-    const newValue = !this.isDark();
-    this.isDark.set(newValue);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem("isDarkMode", String(newValue));
-      this.doc?.documentElement?.classList.toggle("my-app-dark", newValue);
-    }
-  }
-
-  onLanguageChange(event: any, selectRef: any) {
-    const lang = (event?.value?.code ?? event?.value ?? "hu") as "hu" | "en";
-
-    this.translate.use(lang);
-    localStorage.setItem("language", lang);
-
-    const url = this.router.url.split("#")[0].split("?")[0];
-    const segs = url.split("/").filter(Boolean);
-    const hasLocale = segs[0] === "hu" || segs[0] === "en";
-    const rest = hasLocale ? segs.slice(1) : segs;
-
-    if (hasLocale && segs[0] === lang) return;
-
-    this.router.navigate(["/", lang, ...rest], {
-      queryParamsHandling: "preserve",
-      fragment: this.route.snapshot.fragment ?? undefined,
-    });
-
-    if (selectRef?.el?.nativeElement) {
-      selectRef.el.nativeElement.blur();
-      selectRef.el.nativeElement.classList.remove("p-focus");
-    }
-  }
 
   sendMessage() {
     const localizedTitles = {
@@ -208,7 +150,7 @@ export class HomeComponent implements OnInit {
       en: `Hi ${this.name},\n\nThank you for reaching out! We have received your request: "${localizedTitles["en"]}" and will process it within 3 business days.\n\nBest regards,\nMitrik László`,
     };
 
-    const lang = this.selectedLanguage.code as "hu" | "en";
+    const lang = (this.translate.currentLang || "hu") as "hu" | "en";
 
     const templateParams = {
       name: this.name,
@@ -263,13 +205,6 @@ export class HomeComponent implements OnInit {
     window.location.href = "tel:+36201234567";
   }
 
-  getFlagUrl(code: string): string {
-    if (code === "en") return "https://flagcdn.com/gb.svg";
-    if (code === "hu") return "https://flagcdn.com/hu.svg";
-    if (code === "de") return "https://flagcdn.com/de.svg";
-    return "https://flagcdn.com/unknown.svg";
-  }
-
   scrollToForm() {
     const offset = 100;
 
@@ -285,7 +220,7 @@ export class HomeComponent implements OnInit {
   }
 
   private updateSEO(): void {
-    const lang = this.selectedLanguage?.code || "hu";
+    const currentLang = this.translate.currentLang || this.translate.defaultLang || "hu";
     const currentPath = this.router.url.split("?")[0].split("#")[0];
     
     this.translate.get(["SEO.TITLE", "SEO.DESCRIPTION", "SEO.KEYWORDS"]).subscribe((translations) => {
@@ -294,7 +229,7 @@ export class HomeComponent implements OnInit {
         description: translations["SEO.DESCRIPTION"],
         keywords: translations["SEO.KEYWORDS"],
         url: currentPath,
-        locale: lang,
+        locale: currentLang,
         alternateLocales: [
           { lang: "hu", url: "/hu" },
           { lang: "en", url: "/en" },
