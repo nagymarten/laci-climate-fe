@@ -5,7 +5,7 @@
 <div class="card flex flex-col items-center overflow-hidden pt-12 m-2">
   <h1
     pAnimateOnScroll
-    class="text-4xl font-bold text-center mb-12 opacity-100"
+    class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 px-4 opacity-100"
     enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
   >
     {{ "HEADLINE" | translate }}
@@ -15,31 +15,32 @@
     pAnimateOnScroll
     enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
     leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-    class="text-xl font-bold text-center mb-12"
+    class="text-lg sm:text-xl md:text-2xl font-medium text-center mb-8 sm:mb-12 px-4 max-w-3xl text-muted-color"
   >
     {{ "SUBHEADLINE" | translate }}
   </h2>
 
-  <p-button
-    pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
-    leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-    class="mb-4"
-    icon="pi pi-envelope "
-    label="E-mail"
-    (click)="scrollToForm()"
-  ></p-button>
+  <div class="flex flex-col sm:flex-row gap-4 mb-4 items-center justify-center">
+    <p-button
+      pAnimateOnScroll
+      enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+      leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+      icon="pi pi-envelope"
+      [label]="'CONTACT.FORM.EMAIL' | translate"
+      (click)="scrollToForm()"
+    ></p-button>
 
-  <p-button
-    pAnimateOnScroll
-    enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
-    leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-    icon="pi pi-phone"
-    class="mb-4"
-    label="+36 20 226 09 59"
-    (click)="callPhone()"
-  ></p-button>
-  <p class="text-center text-muted-color text-sm mb-4">
+    <p-button
+      pAnimateOnScroll
+      enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+      leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+      icon="pi pi-phone"
+      label="+36 20 226 09 59"
+      (click)="callPhone()"
+    ></p-button>
+  </div>
+
+  <p class="text-center text-muted-color text-sm mb-8 max-w-2xl px-4">
     {{ "CONTACT.CTA" | translate }}
   </p>
 
