@@ -188,7 +188,7 @@ export class SEOService {
         "https://mitrikhutes.hu/assets/images/maintenance.png",
       ],
       logo: "https://mitrikhutes.hu/assets/logo.png",
-      telephone: "+36-20-226-0959",
+      telephone: "+36-20-123-4567",
       inLanguage: lang,
       address: {
         "@type": "PostalAddress",
@@ -402,7 +402,7 @@ export class SEOService {
         "https://mitrikhutes.hu/assets/images/climate-installation.jpg",
         "https://mitrikhutes.hu/assets/images/maintenance.png",
       ],
-      telephone: "+36-20-226-0959",
+      telephone: "+36-20-123-4567",
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
@@ -445,46 +445,6 @@ export class SEOService {
     };
 
     this.addStructuredDataScript(localBusinessData);
-
-    // BreadcrumbList structured data for better navigation SEO
-    const breadcrumbData = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: lang === "hu" ? "Főoldal" : "Home",
-          item: url,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: lang === "hu" ? "Szolgáltatások" : "Services",
-          item: `${url}#szolgaltatasok`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: lang === "hu" ? "Ügyféltípusok" : "Client Types",
-          item: `${url}#ugyfeltipusok`,
-        },
-        {
-          "@type": "ListItem",
-          position: 4,
-          name: lang === "hu" ? "Kapcsolat" : "Contact",
-          item: `${url}#kapcsolat`,
-        },
-        {
-          "@type": "ListItem",
-          position: 5,
-          name: lang === "hu" ? "Gyakori kérdések" : "FAQ",
-          item: `${url}#gyakori-kerdesek`,
-        },
-      ],
-    };
-
-    this.addStructuredDataScript(breadcrumbData);
   }
 
   private addStructuredDataScript(data: object): void {

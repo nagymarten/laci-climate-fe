@@ -10,12 +10,23 @@ A modern, bilingual (Hungarian/English) Angular application for **Mitrik Hűtés
 
 - **🌍 Bilingual Support**: Full Hungarian and English language support with seamless language switching
 - **📱 Responsive Design**: Mobile-first approach with Tailwind CSS and PrimeNG components
+  - Mobile drawer navigation menu for better mobile UX
+  - Desktop navigation with smooth scroll-to-section functionality
 - **🌙 Dark Mode**: User preference-based dark/light theme with localStorage persistence
 - **🍪 Cookie Consent**: GDPR-compliant cookie consent management with granular controls
 - **📧 Contact Form**: Integrated EmailJS contact form with automatic email replies
-- **🔍 SEO Optimized**: Server-side rendering (SSR), meta tags, structured data, and sitemap
+- **🔍 SEO Optimized**: 
+  - Server-side rendering (SSR)
+  - Comprehensive meta tags and Open Graph support
+  - Structured data (FAQPage, LocalBusiness, HVACBusiness schemas)
+  - Image sitemap with optimized images
+  - Multilingual sitemap with hreflang tags
 - **⚡ Performance**: Optimized builds with code splitting and lazy loading
-- **🎨 Modern UI**: Built with PrimeNG 19 and Tailwind CSS 4 for a polished user experience
+- **🎨 Modern UI**: 
+  - Built with PrimeNG 19 and Tailwind CSS 4
+  - PrimeNG Card components with header templates
+  - Smooth animations and transitions
+  - Sticky header with backdrop blur effect
 
 ## 🛠️ Tech Stack
 
@@ -27,7 +38,7 @@ A modern, bilingual (Hungarian/English) Angular application for **Mitrik Hűtés
 
 ### UI Libraries
 
-- **PrimeNG** 19.0.10 - Component library
+- **PrimeNG** 19.0.10 - Component library (Buttons, Cards, Drawer, Select, Toast, ScrollTop)
 - **Tailwind CSS** 4.1.4 - Utility-first CSS framework
 - **Angular Material** 19.2.9 - Material Design components
 - **PrimeIcons** 7.0.0 - Icon library
@@ -160,7 +171,16 @@ src/
 │   ├── components/
 │   │   ├── cookie-consent/     # GDPR cookie consent component
 │   │   ├── footer/             # Footer component
+│   │   ├── header/             # Header component with navigation
+│   │   │                        # - Mobile drawer menu
+│   │   │                        # - Desktop navigation buttons
+│   │   │                        # - Language selector
+│   │   │                        # - Theme toggle
 │   │   ├── home/               # Main home page component
+│   │   │                        # - Service cards (PrimeNG Cards)
+│   │   │                        # - FAQ section with structured data
+│   │   │                        # - Contact form
+│   │   │                        # - Smooth scroll sections
 │   │   └── not-found/          # 404 page component
 │   ├── services/
 │   │   ├── cookie.service.ts   # Cookie management service
@@ -173,6 +193,10 @@ src/
 │   │   ├── en.json            # English translations
 │   │   └── hu.json            # Hungarian translations
 │   └── images/                 # Image assets
+│       ├── climate-installation.jpg  # Service card image
+│       └── maintenance.png          # Maintenance card image
+├── sitemap.xml                 # XML sitemap with image support
+├── robots.txt                  # Search engine crawler instructions
 ├── index.html                  # Main HTML template
 ├── main.ts                     # Application entry point
 ├── main.server.ts              # SSR entry point
@@ -187,6 +211,31 @@ The application uses `@ngx-translate/core` for internationalization. Translation
 - `en.json` - English translations
 
 Language switching is handled via route guards that set the language based on the URL path (`/hu` or `/en`).
+
+### Translation Structure
+
+Key translation sections include:
+- `HEADER` - Navigation and header elements
+- `SERVICES` - Service descriptions and titles
+- `CLIENT_TYPES` - Client type information
+- `CONTACT` - Contact form labels and messages
+- `FAQ` - Frequently asked questions (FAQ/Gyik)
+- `BENEFITS` - Service benefits
+- `SEO` - SEO metadata
+
+## 🔍 SEO Features
+
+The application includes comprehensive SEO optimization:
+
+- **Meta Tags**: Dynamic meta tags for each page with Open Graph and Twitter Card support
+- **Structured Data**: 
+  - FAQPage schema for FAQ sections
+  - LocalBusiness schema for local SEO
+  - HVACBusiness schema for business information
+- **Sitemap**: XML sitemap with image support (`sitemap.xml`)
+- **Robots.txt**: Search engine crawler instructions
+- **Multilingual Support**: Hreflang tags for Hungarian and English versions
+- **Image Optimization**: Images included in sitemap with titles and captions
 
 ## 🚢 Deployment
 
