@@ -98,6 +98,52 @@
       "DESCRIPTION": "Automated systems, smart control"
     }
   },
+  "FAQ": {
+    "TITLE": "Frequently asked questions about air conditioning installations",
+    "DESCRIPTION": "We collected the most common questions and answers so you can quickly find the ideal solution for you.",
+    "ITEMS": {
+      "INSTALL_TIME": {
+        "QUESTION": "How long does an air conditioning installation take in Szeged?",
+        "ANSWER": "A complete air conditioning installation in Szeged usually takes one day from the on-site survey to the test run, so you can enjoy quiet and efficient cooling right away."
+      },
+      "MAINTENANCE": {
+        "QUESTION": "What maintenance does an air conditioning system need?",
+        "ANSWER": "Have your air conditioning system checked at least once a year: clean the heat exchangers, verify the refrigerant level, and calibrate the electronics to avoid faults and reduce energy use."
+      },
+      "PANEL": {
+        "QUESTION": "How do I choose an air conditioner for a Szeged apartment block?",
+        "ANSWER": "For Szeged panel apartments, accurate capacity, low indoor noise, and safe condensate drainage are essential. Our on-site survey helps you pick the ideal unit."
+      },
+      "PERMITS": {
+        "QUESTION": "Do I need permits for AC installation in Szeged?",
+        "ANSWER": "In condominiums you should ask the building manager for approval, while in detached houses notifying neighbors is recommended. Licensed technicians handle the entire air conditioning installation."
+      },
+      "PRICE": {
+        "QUESTION": "How much does an air conditioning installation cost in Szeged?",
+        "ANSWER": "The price of an air conditioning installation in Szeged depends on the chosen type, capacity, and complexity of the work. After a free on-site survey, we provide a detailed, personalized quote that includes material costs and labor."
+      },
+      "ENERGY": {
+        "QUESTION": "How energy-efficient is a modern air conditioning system?",
+        "ANSWER": "Today's air conditioning systems are A+++ energy rated, which can mean 40-50% lower energy consumption compared to older systems. We calculate the exact payback period during the on-site survey."
+      },
+      "HEATING": {
+        "QUESTION": "Can I use my air conditioning for heating in winter?",
+        "ANSWER": "Yes, most modern air conditioning units use heat pump technology, so they can efficiently heat in winter as well. Heat pump systems operate stably down to -15°C, making them usable year-round."
+      },
+      "MULTI_SPLIT": {
+        "QUESTION": "What's the difference between split and multi-split air conditioning?",
+        "ANSWER": "A split air conditioning system consists of one indoor and one outdoor unit, while a multi-split system connects multiple indoor units to one outdoor unit. Multi-split is ideal for cooling or heating multiple rooms and is a more cost-effective solution."
+      },
+      "SERVICE": {
+        "QUESTION": "What should I do if my air conditioning system breaks down?",
+        "ANSWER": "If you have a problem with your air conditioning system, contact us by phone or email. We provide quick troubleshooting and, if necessary, come to the site immediately. We also handle all service work."
+      },
+      "SURVEY": {
+        "QUESTION": "Is the on-site survey free in Szeged?",
+        "ANSWER": "Yes, the on-site survey is completely free in Szeged and the surrounding area. During the survey, we inspect the rooms, calculate the required capacity, and prepare a personalized quote for the optimal air conditioning system for you."
+      }
+    }
+  },
   "FOOTER": {
     "ALL_RIGHTS": "All rights reserved",
     "MADE_BY": "Made by"

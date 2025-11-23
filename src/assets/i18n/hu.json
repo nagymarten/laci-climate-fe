@@ -98,6 +98,52 @@
       "DESCRIPTION": "Automatizált rendszerek, okosvezérlés"
     }
   },
+  "FAQ": {
+    "TITLE": "Gyakori kérdések a klímaszerelésről",
+    "DESCRIPTION": "Összegyűjtöttük a leggyakoribb kérdéseket és válaszaikat, hogy gyorsan megtaláld a számodra ideális megoldást.",
+    "ITEMS": {
+      "INSTALL_TIME": {
+        "QUESTION": "Mennyi idő egy szegedi klímaszerelés?",
+        "ANSWER": "A komplett klíma telepítés általában egy napot vesz igénybe a helyszíni felméréstől a próbaüzemig, így gyorsan élvezheted a kényelmes, energiatakarékos hűtést."
+      },
+      "MAINTENANCE": {
+        "QUESTION": "Milyen karbantartást igényel egy klíma rendszer?",
+        "ANSWER": "Évente legalább egyszer javasolt szakemberrel átvizsgáltatni a klíma rendszert: tisztítani kell a hőcserélőket, ellenőrizni a hűtőközeget és kalibrálni az elektronikát a hibamentes működésért."
+      },
+      "PANEL": {
+        "QUESTION": "Hogyan válasszak klímát egy szegedi panellakáshoz?",
+        "ANSWER": "A szegedi panellakásoknál fontos a pontos teljesítmény, a halk beltéri egység és a kondenzvíz biztonságos elvezetése. Helyszíni felméréssel segítünk kiválasztani a legjobb megoldást."
+      },
+      "PERMITS": {
+        "QUESTION": "Szükség van-e engedélyre a szegedi klímaszereléshez?",
+        "ANSWER": "Társasházban célszerű a közös képviselő jóváhagyása, családi ház esetén pedig a szomszédok előzetes tájékoztatása. A szegedi klímaszerelést végig engedéllyel rendelkező szakembereink intézik."
+      },
+      "PRICE": {
+        "QUESTION": "Mennyibe kerül egy szegedi klímaszerelés?",
+        "ANSWER": "A klíma telepítés ára függ a választott típus, a teljesítmény és a munkavégzés összetettségétől. Ingyenes helyszíni felmérés után pontos, egyedi ajánlatot készítünk, amely tartalmazza az anyagköltségeket és a munkadíjat."
+      },
+      "ENERGY": {
+        "QUESTION": "Mennyire energiahatékony egy modern klíma rendszer?",
+        "ANSWER": "A mai klíma rendszerek A+++ energiateljesítmény osztályúak, ami akár 40-50%-kal alacsonyabb energiafogyasztást jelent a régi rendszerekhez képest. A pontos megtérülési időt a helyszíni felmérés során számoljuk ki."
+      },
+      "HEATING": {
+        "QUESTION": "Használható a klíma télen fűtésre is?",
+        "ANSWER": "Igen, a legtöbb modern klíma hőszivattyú-technológiával működik, így télen is hatékonyan fűthet vele. A hőszivattyús rendszerek akár -15°C-ig is stabilan működnek, így egész évben használhatók."
+      },
+      "MULTI_SPLIT": {
+        "QUESTION": "Mi a különbség a split és multi-split klíma között?",
+        "ANSWER": "A split klíma egy beltéri és egy kültéri egységből áll, míg a multi-split rendszer egy kültéri egységhez több beltéri egység csatlakozik. A multi-split ideális több szoba hűtésére vagy fűtésére, és költséghatékonyabb megoldás."
+      },
+      "SERVICE": {
+        "QUESTION": "Mit tegyek, ha a klíma rendszerem meghibásodik?",
+        "ANSWER": "Amennyiben a klíma rendszereddel probléma van, lépj velünk kapcsolatba telefonon vagy e-mailben. Gyors hibaelhárítást biztosítunk, és ha szükséges, azonnal kiérünk a helyszínre. A szerviz munkákat is mi végezzük."
+      },
+      "SURVEY": {
+        "QUESTION": "Ingyenes a helyszíni felmérés Szegeden?",
+        "ANSWER": "Igen, a helyszíni felmérés teljesen ingyenes Szegeden és környékén. A felmérés során megnézzük a helyiségeket, kiszámoljuk a szükséges teljesítményt, és egyedi ajánlatot készítünk a számodra optimális klíma rendszerre."
+      }
+    }
+  },
   "FOOTER": {
     "ALL_RIGHTS": "Minden jog fenntartva",
     "MADE_BY": "Készítette"

@@ -79,11 +79,7 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col border border-primary-200 shadow-lg items-center w-fit rounded-2xl pt-4 gap-4"
     >
-      <div
-        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
-      >
-        <span class="text-4xl">❄️</span>
-      </div>
+      <span class="text-5xl">❄️</span>
       <p-organization-chart class="" [value]="data" [collapsible]="true">
         <ng-template let-node pTemplate="default">
           <div class="font-medium text-base break-words">
@@ -99,11 +95,7 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
-      >
-        <span class="text-3xl">🏠</span>
-      </div>
+      <span class="text-5xl">🏠</span>
       <span class="text-2xl font-bold">{{
         "SERVICES.MAINTENANCE.TITLE" | translate
       }}</span>
@@ -131,11 +123,7 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
-      >
-        <span class="text-3xl">👤</span>
-      </div>
+      <span class="text-5xl">👤</span>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.PRIVATE.TITLE" | translate
       }}</span>
@@ -150,11 +138,7 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
-      >
-        <span class="text-3xl">👥</span>
-      </div>
+      <span class="text-5xl">👥</span>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.COMMUNITY.TITLE" | translate
       }}</span>
@@ -169,11 +153,7 @@
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
       class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-      <div
-        class="rounded-full bg-primary-100 text-primary-contrast w-12 h-12 flex items-center justify-center"
-      >
-        <span class="text-3xl">🏢</span>
-      </div>
+      <span class="text-5xl">🏢</span>
       <span class="text-2xl font-medium">{{
         "CLIENT_TYPES.BUSINESS.TITLE" | translate
       }}</span>
@@ -202,7 +182,7 @@
       class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div class="rounded-full w-12 h-12 flex items-center justify-center">
-        <span class="text-4xl">🌍</span>
+        <span class="text-5xl">🌍</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.ECO.TITLE" | translate
@@ -219,7 +199,7 @@
       class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div class="rounded-full w-12 h-12 flex items-center justify-center">
-        <span class="text-4xl">💶</span>
+        <span class="text-5xl">💶</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.ECONOMY.TITLE" | translate
@@ -233,10 +213,10 @@
       pAnimateOnScroll
       enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
       leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-      class="flex flex-col bg-indigo-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+      class="flex flex-col bg-orange-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
       <div class="rounded-full w-12 h-12 flex items-center justify-center">
-        <span class="text-4xl">🛜</span>
+        <span class="text-5xl">🛜</span>
       </div>
       <span class="text-2xl font-bold">{{
         "BENEFITS.COMFORT.TITLE" | translate
@@ -343,6 +323,327 @@
       ></button>
     </form>
   </div>
+
+  <div class="h-[15rem]"></div>
+
+  <section
+    id="gyakori-kerdesek"
+    pAnimateOnScroll
+    enterClass="animate-enter fade-in-10 slide-in-from-t-8 animate-duration-1000"
+    leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+    class="w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8"
+    itemscope
+    itemtype="https://schema.org/FAQPage"
+  >
+    <h2 class="text-3xl font-bold text-center mb-6">
+      {{ "FAQ.TITLE" | translate }}
+    </h2>
+    <p class="text-center text-muted-color mb-8">
+      {{ "FAQ.DESCRIPTION" | translate }}
+    </p>
+
+    <div class="space-y-4" role="list">
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group" open>
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.INSTALL_TIME.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.INSTALL_TIME.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.MAINTENANCE.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.MAINTENANCE.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.PANEL.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.PANEL.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.PERMITS.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.PERMITS.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.PRICE.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.PRICE.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.ENERGY.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.ENERGY.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.HEATING.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.HEATING.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.MULTI_SPLIT.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.MULTI_SPLIT.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.SERVICE.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.SERVICE.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <article
+        class="border border-primary-200 rounded-2xl p-4 shadow-lg"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <details class="group">
+          <summary
+            class="flex items-center justify-between gap-4 text-lg font-semibold cursor-pointer"
+          >
+            <span itemprop="name">{{
+              "FAQ.ITEMS.SURVEY.QUESTION" | translate
+            }}</span>
+            <i
+              class="pi pi-chevron-down transition-transform group-open:rotate-180"
+            ></i>
+          </summary>
+          <div
+            class="mt-3 text-muted-color"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <p itemprop="text">
+              {{ "FAQ.ITEMS.SURVEY.ANSWER" | translate }}
+            </p>
+          </div>
+        </details>
+      </article>
+    </div>
+  </section>
 
   <div class="h-[5rem]"></div>
 
