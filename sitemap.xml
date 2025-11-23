@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Root URL - redirects to /hu -->
   <url>
     <loc>https://mitrikhutes.hu/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/climate-installation.jpg</image:loc>
+      <image:title>Klímaszerelés Szeged</image:title>
+      <image:caption>Szakszerű klímaszerelés hűtő és fűtő funkcióval</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/maintenance.png</image:loc>
+      <image:title>Klíma karbantartás Szeged</image:title>
+      <image:caption>Szakszerű karbantartás hűtő és fűtő rendszerekhez</image:caption>
+    </image:image>
   </url>
 
   <!-- Hungarian version -->
@@ -17,7 +28,17 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mitrikhutes.hu/hu"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/climate-installation.jpg</image:loc>
+      <image:title>Klímaszerelés Szeged</image:title>
+      <image:caption>Szakszerű klímaszerelés hűtő és fűtő funkcióval</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/maintenance.png</image:loc>
+      <image:title>Klíma karbantartás Szeged</image:title>
+      <image:caption>Szakszerű karbantartás hűtő és fűtő rendszerekhez</image:caption>
+    </image:image>
   </url>
 
   <!-- English version -->
@@ -28,6 +49,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mitrikhutes.hu/hu"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-01-15</lastmod>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/climate-installation.jpg</image:loc>
+      <image:title>Air Conditioning Installation Szeged</image:title>
+      <image:caption>Professional air conditioning installation with cooling and heating functions</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mitrikhutes.hu/assets/images/maintenance.png</image:loc>
+      <image:title>AC Maintenance Szeged</image:title>
+      <image:caption>Professional maintenance for cooling and heating systems</image:caption>
+    </image:image>
   </url>
 </urlset>
