@@ -30,6 +30,10 @@
     }
   },
   "SCROLL_DOWN": "Görgessen le",
+  "SNOWFALL": {
+    "ON": "Hóesés be",
+    "OFF": "Hóesés ki"
+  },
   "HEADLINE": "  Energiatakarékos megoldások otthonába",
   "SUBHEADLINE": "Klímatechnika, központi fűtés és hőszivattyúk Szeged és környékén – teljes körű kivitelezés és karbantartás.",
   "CTA": {

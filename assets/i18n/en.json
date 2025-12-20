@@ -30,6 +30,10 @@
     }
   },
   "SCROLL_DOWN": "Scroll down",
+  "SNOWFALL": {
+    "ON": "Snowfall On",
+    "OFF": "Snowfall Off"
+  },
   "HEADLINE": "Energy-efficient solutions for your home",
   "SUBHEADLINE": "Air conditioning, central heating, and heat pumps in and around Szeged – full implementation and maintenance.",
   "CTA": {
