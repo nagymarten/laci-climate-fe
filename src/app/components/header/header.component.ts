@@ -63,6 +63,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
           document.body.style.overflow = "";
         }
       });
+
+      // Watch for dark mode changes and update snowfall accordingly
+      effect(() => {
+        const isDark = this.isDark();
+        const isWinterSeason = this.isWinterSeason();
+        const shouldShowButton = isDark && isWinterSeason;
+
+        this.showSnowfallButton.set(shouldShowButton);
+
+        if (shouldShowButton && !this.snowfallInstance) {
+          // Enable snowfall when dark mode is on and it's winter season
+          this.snowfallActive.set(true);
+          this.initializeSnowfall();
+        } else if (!isDark) {
+          // Disable snowfall when switching to light mode
+          if (this.snowfallInstance) {
+            this.snowfallInstance.clear();
+            this.snowfallInstance = undefined;
+          }
+          this.snowfallActive.set(false);
+        }
+      });
     }
   }
 
@@ -70,15 +92,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.initLanguageSSRFirst();
 
     if (isPlatformBrowser(this.platformId)) {
-      // Check if date is between December 1 and January 31
-      const isWinterSeason = this.isWinterSeason();
-      this.showSnowfallButton.set(isWinterSeason);
-
-      if (isWinterSeason) {
-        this.snowfallActive.set(true);
-        // Initialize snowfall automatically during winter season
-        this.initializeSnowfall();
-      }
       // Check initial cookie consent state and disable scrolling if cookies not set
       const hasConsent = this.cookieService.hasConsent();
       if (!hasConsent) {
@@ -94,6 +107,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
         } else {
           this.doc?.documentElement?.classList.remove("my-app-dark");
         }
+      }
+
+      // Initialize snowfall if dark mode and winter season
+      const isWinterSeason = this.isWinterSeason();
+      const isDark = this.isDark();
+      if (isDark && isWinterSeason) {
+        this.snowfallActive.set(true);
+        this.initializeSnowfall();
       }
 
       // Listen for browser theme changes
@@ -199,6 +220,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       // Save theme to cookies (if consent given) or localStorage
       this.cookieService.setTheme(newValue);
       this.doc?.documentElement?.classList.toggle("my-app-dark", newValue);
+
+      // The effect will handle snowfall enable/disable based on dark mode
     }
   }
 
@@ -309,6 +332,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleSnowfall(): void {
     if (!isPlatformBrowser(this.platformId)) return;
+
+    // Only allow toggling if dark mode is active
+    if (!this.isDark()) return;
 
     const newValue = !this.snowfallActive();
     this.snowfallActive.set(newValue);

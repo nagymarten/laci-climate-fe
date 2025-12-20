@@ -14,15 +14,16 @@ A modern, bilingual (Hungarian/English) Angular application for **Mitrik Hűtés
   - Desktop navigation with smooth scroll-to-section functionality
 - **🌙 Dark Mode**: User preference-based dark/light theme with localStorage persistence
 - **🍪 Cookie Consent**: GDPR-compliant cookie consent management with granular controls
+- **❄️ Seasonal Snowfall Effect**: Interactive snowfall animation that automatically activates during winter season (December 1 - January 31) with manual toggle control. **Note**: Snowfall only works in dark mode - the button is hidden and snowfall is disabled in light mode.
 - **📧 Contact Form**: Integrated EmailJS contact form with automatic email replies
-- **🔍 SEO Optimized**: 
+- **🔍 SEO Optimized**:
   - Server-side rendering (SSR)
   - Comprehensive meta tags and Open Graph support
   - Structured data (FAQPage, LocalBusiness, HVACBusiness schemas)
   - Image sitemap with optimized images
   - Multilingual sitemap with hreflang tags
 - **⚡ Performance**: Optimized builds with code splitting and lazy loading
-- **🎨 Modern UI**: 
+- **🎨 Modern UI**:
   - Built with PrimeNG 19 and Tailwind CSS 4
   - PrimeNG Card components with header templates
   - Smooth animations and transitions
@@ -48,6 +49,7 @@ A modern, bilingual (Hungarian/English) Angular application for **Mitrik Hűtés
 - **@ngx-translate/core** 16.0.4 - Internationalization
 - **@emailjs/browser** 4.4.1 - Email service integration
 - **@angular/ssr** 19.2.7 - Server-side rendering support
+- **let-it-go** 1.1.0 - Zero-dependency snowfall animation library
 
 ## 📋 Prerequisites
 
@@ -175,7 +177,8 @@ src/
 │   │   │                        # - Mobile drawer menu
 │   │   │                        # - Desktop navigation buttons
 │   │   │                        # - Language selector
-│   │   │                        # - Theme toggle
+│   │   │                        # - Theme toggle (dark/light mode)
+│   │   │                        # - Seasonal snowfall toggle (Dec 1 - Jan 31, dark mode only)
 │   │   ├── home/               # Main home page component
 │   │   │                        # - Service cards (PrimeNG Cards)
 │   │   │                        # - FAQ section with structured data
@@ -215,12 +218,14 @@ Language switching is handled via route guards that set the language based on th
 ### Translation Structure
 
 Key translation sections include:
+
 - `HEADER` - Navigation and header elements
 - `SERVICES` - Service descriptions and titles
 - `CLIENT_TYPES` - Client type information
 - `CONTACT` - Contact form labels and messages
 - `FAQ` - Frequently asked questions (FAQ/Gyik)
 - `BENEFITS` - Service benefits
+- `SNOWFALL` - Snowfall toggle button labels
 - `SEO` - SEO metadata
 
 ## 🔍 SEO Features
@@ -228,7 +233,7 @@ Key translation sections include:
 The application includes comprehensive SEO optimization:
 
 - **Meta Tags**: Dynamic meta tags for each page with Open Graph and Twitter Card support
-- **Structured Data**: 
+- **Structured Data**:
   - FAQPage schema for FAQ sections
   - LocalBusiness schema for local SEO
   - HVACBusiness schema for business information
