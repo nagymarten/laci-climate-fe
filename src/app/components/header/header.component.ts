@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   inject,
   signal,
   PLATFORM_ID,
@@ -15,6 +16,7 @@ import { FormsModule } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { isPlatformBrowser, DOCUMENT } from "@angular/common";
 import { CookieService } from "../../services/cookie.service";
+import { LetItGo } from "let-it-go";
 
 @Component({
   selector: "app-header",
@@ -30,7 +32,7 @@ import { CookieService } from "../../services/cookie.service";
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   private translate = inject(TranslateService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -40,11 +42,14 @@ export class HeaderComponent implements OnInit {
 
   isDark = signal(false);
   drawerVisible = signal(false);
+  snowfallActive = signal(false);
+  showSnowfallButton = signal(false);
   languages = [
     { name: "English", code: "en" },
     { name: "Magyar", code: "hu" },
   ];
   selectedLanguage: { name: string; code: string } | undefined;
+  private snowfallInstance: LetItGo | undefined;
 
   constructor() {
     // Watch for cookie consent changes
@@ -65,6 +70,15 @@ export class HeaderComponent implements OnInit {
     this.initLanguageSSRFirst();
 
     if (isPlatformBrowser(this.platformId)) {
+      // Check if date is between December 1 and January 31
+      const isWinterSeason = this.isWinterSeason();
+      this.showSnowfallButton.set(isWinterSeason);
+
+      if (isWinterSeason) {
+        this.snowfallActive.set(true);
+        // Initialize snowfall automatically during winter season
+        this.initializeSnowfall();
+      }
       // Check initial cookie consent state and disable scrolling if cookies not set
       const hasConsent = this.cookieService.hasConsent();
       if (!hasConsent) {
@@ -250,5 +264,69 @@ export class HeaderComponent implements OnInit {
     const currentLang =
       this.translate.currentLang || this.translate.defaultLang || "hu";
     return currentLang === "hu" ? "Gyik" : "FAQ";
+  }
+
+  private isWinterSeason(): boolean {
+    if (!isPlatformBrowser(this.platformId)) return false;
+
+    const now = new Date();
+    const month = now.getMonth() + 1; // getMonth() returns 0-11, so add 1
+    const day = now.getDate();
+
+    // December (month 12) from day 1 to 31
+    // January (month 1) from day 1 to 31
+    return month === 12 || (month === 1 && day <= 31);
+  }
+
+  private initializeSnowfall(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    // Clear any existing instance first
+    if (this.snowfallInstance) {
+      this.snowfallInstance.clear();
+      this.snowfallInstance = undefined;
+    }
+
+    // Create a fresh new snowfall instance
+    this.snowfallInstance = new LetItGo({
+      root: this.doc.body,
+      number: Math.min(window.innerWidth, 500),
+      velocityXRange: [-3, 3],
+      velocityYRange: [1, 5],
+      radiusRange: [0.5, 1.5],
+      color: "#ffffff",
+      alphaRange: [0.8, 1],
+      backgroundColor: "transparent",
+      style: {
+        zIndex: "9999",
+        pointerEvents: "none",
+        position: "fixed",
+        top: "0",
+        left: "0",
+      },
+    });
+  }
+
+  toggleSnowfall(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const newValue = !this.snowfallActive();
+    this.snowfallActive.set(newValue);
+
+    if (newValue) {
+      this.initializeSnowfall();
+    } else {
+      // Clear and remove the snowfall completely
+      if (this.snowfallInstance) {
+        this.snowfallInstance.clear();
+        this.snowfallInstance = undefined;
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId) && this.snowfallInstance) {
+      this.snowfallInstance.clear();
+    }
   }
 }

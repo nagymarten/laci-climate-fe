@@ -99,6 +99,19 @@
       (onClick)="toggleDark()"
     ></p-button>
 
+    <p-button
+      *ngIf="showSnowfallButton()"
+      label="❄️"
+      (onClick)="toggleSnowfall()"
+      [title]="
+        snowfallActive()
+          ? ('SNOWFALL.OFF' | translate)
+          : ('SNOWFALL.ON' | translate)
+      "
+      severity="secondary"
+      [raised]="true"
+    ></p-button>
+
     <p-select
       #languageSelectRef
       [options]="languages"
