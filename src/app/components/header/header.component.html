@@ -95,11 +95,6 @@
 
   <div class="flex gap-4 items-center">
     <p-button
-      [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
-      (onClick)="toggleDark()"
-    ></p-button>
-
-    <p-button
       *ngIf="showSnowfallButton()"
       label="❄️"
       (onClick)="toggleSnowfall()"
@@ -110,6 +105,10 @@
       "
       severity="secondary"
       [raised]="true"
+    ></p-button>
+    <p-button
+      [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+      (onClick)="toggleDark()"
     ></p-button>
 
     <p-select
