@@ -22,9 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular app (Production)
+      - name: Build and Prerender Angular app (Production)
         run: |
-          npm run build -- --configuration production --output-mode=static --base-href "/"
+          # Angular 19 application builder automatically prerenders with outputMode: "static"
+          npm run build -- --configuration production
 
       - name: Prepare deployment files
         run: |
@@ -35,7 +36,10 @@ jobs:
           echo "mitrikhutes.hu" > dist/laci-climate-frontend/browser/CNAME
 
           # Verify important files exist
-          ls -la dist/laci-climate-frontend/browser/ | grep -E "(index.html|404.html|CNAME|sitemap.xml|robots.txt)"
+          ls -la dist/laci-climate-frontend/browser/
+          echo "Checking for prerendered pages:"
+          ls -la dist/laci-climate-frontend/browser/hu/ || echo "Warning: /hu not found"
+          ls -la dist/laci-climate-frontend/browser/en/ || echo "Warning: /en not found"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

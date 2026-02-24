@@ -16,7 +16,8 @@ import { FormsModule } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { isPlatformBrowser, DOCUMENT } from "@angular/common";
 import { CookieService } from "../../services/cookie.service";
-import { LetItGo } from "let-it-go";
+// Import let-it-go dynamically to avoid SSR issues
+// import { LetItGo } from "let-it-go";
 
 @Component({
   selector: "app-header",
@@ -49,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { name: "Magyar", code: "hu" },
   ];
   selectedLanguage: { name: string; code: string } | undefined;
-  private snowfallInstance: LetItGo | undefined;
+  private snowfallInstance: any; // Dynamically imported let-it-go instance
 
   constructor() {
     // Watch for cookie consent changes
@@ -301,7 +302,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return month === 12 || (month === 1 && day <= 31);
   }
 
-  private initializeSnowfall(): void {
+  private async initializeSnowfall(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
 
     // Clear any existing instance first
@@ -309,6 +310,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.snowfallInstance.clear();
       this.snowfallInstance = undefined;
     }
+
+    // Dynamically import let-it-go to avoid SSR issues
+    const { LetItGo } = await import("let-it-go");
 
     // Create a fresh new snowfall instance
     this.snowfallInstance = new LetItGo({

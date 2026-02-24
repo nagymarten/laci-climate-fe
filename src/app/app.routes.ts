@@ -16,30 +16,31 @@ function setLangGuard(lang: "hu" | "en"): CanActivateFn {
     const router = inject(Router);
 
     // Priority: Cookie language first, then URL language
+    // But only for real users, not during SSR (SEO optimization)
     if (isPlatformBrowser(pid)) {
       const cookieLang = cookieService.getCookieLanguage();
-      if (
-        cookieLang &&
-        (cookieLang === "en" || cookieLang === "hu") &&
-        cookieLang !== lang
-      ) {
-        // Cookie language takes priority - redirect to cookie language
-        const currentPath = router.url.split("?")[0].split("#")[0];
-        const segments = currentPath.split("/").filter(Boolean);
-        const hasLang = segments[0] === "hu" || segments[0] === "en";
-        const rest = hasLang ? segments.slice(1) : segments;
+        if (
+          cookieLang &&
+          (cookieLang === "en" || cookieLang === "hu") &&
+          cookieLang !== lang
+        ) {
+          // Cookie language takes priority - redirect to cookie language
+          const currentPath = router.url.split("?")[0].split("#")[0];
+          const segments = currentPath.split("/").filter(Boolean);
+          const hasLang = segments[0] === "hu" || segments[0] === "en";
+          const rest = hasLang ? segments.slice(1) : segments;
 
-        router.navigate(["/", cookieLang, ...rest], {
-          queryParamsHandling: "preserve",
-          fragment: route.fragment ?? undefined,
-          replaceUrl: true,
-        });
+          router.navigate(["/", cookieLang, ...rest], {
+            queryParamsHandling: "preserve",
+            fragment: route.fragment ?? undefined,
+            replaceUrl: true,
+          });
 
-        doc.documentElement.lang = cookieLang;
-        t.setDefaultLang(cookieLang);
-        t.use(cookieLang);
-        return false; // Prevent current route activation
-      }
+          doc.documentElement.lang = cookieLang;
+          t.setDefaultLang(cookieLang);
+          t.use(cookieLang);
+          return false; // Prevent current route activation
+        }
     }
 
     // Use URL language
