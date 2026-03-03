@@ -151,6 +151,28 @@
       }
     }
   },
+  "PRICING": {
+    "TITLE": "Pricing",
+    "FOLLOW_UP": "Prices are indicative; further coordination is required afterward.",
+    "BASE": {
+      "TITLE": "Basic Installation",
+      "PRICE": "From 95 000 Ft",
+      "DETAIL": "(2-meter refrigerant line, outdoor bracket + labor) for 2.6 or 3.5 kW units",
+      "FOLLOW_UP": "Prices are indicative; further coordination is required afterward."
+    },
+    "MAINTENANCE": {
+      "TITLE": "Maintenance",
+      "PRICE": "15 000 Ft",
+      "DETAIL": "Professional maintenance for cooling and heating systems",
+      "FOLLOW_UP": "Prices are indicative; further coordination is required afterward."
+    },
+    "REPAIR": {
+      "TITLE": "Repair",
+      "PRICE": "From 10 000 Ft",
+      "DETAIL": "(on-site visit + fault diagnosis)",
+      "FOLLOW_UP": "Prices are indicative; further coordination is required afterward."
+    }
+  },
   "HEADER": {
     "NAVIGATION": "Navigation",
     "SELECT_LANGUAGE": "Select Language"
