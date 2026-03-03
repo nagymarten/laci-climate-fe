@@ -134,6 +134,85 @@
 
   <div class="h-[15rem]"></div>
 
+  <section id="arak">
+    <h2
+      pAnimateOnScroll
+      enterClass="animate-enter fade-in-10 slide-in-from-t-8 animate-duration-1000"
+      leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+      class="text-3xl font-bold text-center mb-12"
+    >
+      {{ "PRICING.TITLE" | translate }}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+      <div
+        pAnimateOnScroll
+        enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+        leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+      >
+        <span class="text-2xl font-semibold">{{
+          "PRICING.BASE.TITLE" | translate
+        }}</span>
+        <span class="text-4xl font-bold text-primary">{{
+          "PRICING.BASE.PRICE" | translate
+        }}</span>
+        <span class="text-muted-color">
+          {{ "PRICING.BASE.DETAIL" | translate }}
+        </span>
+        <span class="text-sm font-medium text-primary">
+          {{ "PRICING.BASE.FOLLOW_UP" | translate }}
+        </span>
+      </div>
+
+      <div
+        pAnimateOnScroll
+        enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+        leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+      >
+        <span class="text-2xl font-semibold">{{
+          "PRICING.MAINTENANCE.TITLE" | translate
+        }}</span>
+        <span class="text-4xl font-bold text-primary">{{
+          "PRICING.MAINTENANCE.PRICE" | translate
+        }}</span>
+        <span class="text-muted-color">
+          {{ "PRICING.MAINTENANCE.DETAIL" | translate }}
+        </span>
+        <span class="text-sm font-medium text-primary">
+          {{ "PRICING.MAINTENANCE.FOLLOW_UP" | translate }}
+        </span>
+      </div>
+
+      <div
+        pAnimateOnScroll
+        enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+        leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+      >
+        <span class="text-2xl font-semibold">{{
+          "PRICING.REPAIR.TITLE" | translate
+        }}</span>
+        <span class="text-4xl font-bold text-primary">{{
+          "PRICING.REPAIR.PRICE" | translate
+        }}</span>
+        <span class="text-muted-color">
+          {{ "PRICING.REPAIR.DETAIL" | translate }}
+        </span>
+        <span class="text-sm font-medium text-primary">
+          {{ "PRICING.REPAIR.FOLLOW_UP" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <p class="text-center text-sm font-medium mt-8 px-4">
+      {{ "PRICING.FOLLOW_UP" | translate }}
+    </p>
+  </section>
+
+  <div class="h-[15rem]"></div>
+
   <section id="ugyfeltipusok">
     <h2
       pAnimateOnScroll

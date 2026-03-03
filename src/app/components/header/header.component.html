@@ -20,6 +20,13 @@
       (onClick)="scrollToSection('szolgaltatasok')"
     ></p-button>
     <p-button
+      [label]="'PRICING.TITLE' | translate"
+      icon="pi pi-tag"
+      variant="text"
+      [raised]="true"
+      (onClick)="scrollToSection('arak')"
+    ></p-button>
+    <p-button
       [label]="'CLIENT_TYPES.TITLE' | translate"
       icon="pi pi-users"
       variant="text"
@@ -65,6 +72,14 @@
         [raised]="true"
         styleClass="w-full justify-start"
         (onClick)="scrollToSection('szolgaltatasok')"
+      ></p-button>
+      <p-button
+        [label]="'PRICING.TITLE' | translate"
+        icon="pi pi-tag"
+        variant="text"
+        [raised]="true"
+        styleClass="w-full justify-start"
+        (onClick)="scrollToSection('arak')"
       ></p-button>
       <p-button
         [label]="'CLIENT_TYPES.TITLE' | translate"

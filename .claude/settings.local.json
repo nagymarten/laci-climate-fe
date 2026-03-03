@@ -3,7 +3,18 @@
     "allow": [
       "Bash(npm audit:*)",
       "Bash(npm install:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run prerender:prod:*)",
+      "Bash(ng version:*)",
+      "WebSearch",
+      "WebFetch(domain:v19.angular.dev)",
+      "WebFetch(domain:angular.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.angulararchitects.io)",
+      "WebFetch(domain:medium.com)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate @angular/ssr to 19.2.21 to match Angular CLI version\n\nFix deployment error where @angular-devkit/build-angular@19.2.21\nrequires @angular/ssr@^19.2.21 but 19.2.19 was installed.\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

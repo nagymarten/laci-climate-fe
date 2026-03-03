@@ -151,6 +151,28 @@
       }
     }
   },
+  "PRICING": {
+    "TITLE": "Árak",
+    "FOLLOW_UP": "Az árak tájékoztató jellegűek, utána egyeztetés szükséges.",
+    "BASE": {
+      "TITLE": "Alapszerelés",
+      "PRICE": "95 000 Ft-tól",
+      "DETAIL": "(2 méter kalorikus nyomvonal, kültéri konzol + munkadíj) 2,6 vagy 3,5 kW készülékek esetén",
+      "FOLLOW_UP": "Az árak tájékoztató jellegűek, utána egyeztetés szükséges."
+    },
+    "MAINTENANCE": {
+      "TITLE": "Karbantartás",
+      "PRICE": "15 000 Ft",
+      "DETAIL": "Hűtő és fűtő rendszerek szakszerű karbantartása",
+      "FOLLOW_UP": "Utána egyeztetés"
+    },
+    "REPAIR": {
+      "TITLE": "Javítás",
+      "PRICE": "10 000 Ft-tól",
+      "DETAIL": "(kiszállás + hibafeltárás)",
+      "FOLLOW_UP": "Utána egyeztetés"
+    }
+  },
   "HEADER": {
     "NAVIGATION": "Navigáció",
     "SELECT_LANGUAGE": "Nyelv kiválasztása"
