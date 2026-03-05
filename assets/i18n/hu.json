@@ -108,6 +108,7 @@
   "FAQ": {
     "TITLE": "Gyakori kérdések a klímaszerelésről",
     "DESCRIPTION": "Összegyűjtöttük a leggyakoribb kérdéseket és válaszaikat, hogy gyorsan megtaláld a számodra ideális megoldást.",
+    "MENU_TOOLTIP": "Gyakran ismételt kérdések",
     "ITEMS": {
       "INSTALL_TIME": {
         "QUESTION": "Mennyi idő egy szegedi klímaszerelés?",

@@ -108,6 +108,7 @@
   "FAQ": {
     "TITLE": "Frequently asked questions about air conditioning installations",
     "DESCRIPTION": "We collected the most common questions and answers so you can quickly find the ideal solution for you.",
+    "MENU_TOOLTIP": "Frequently Asked Questions",
     "ITEMS": {
       "INSTALL_TIME": {
         "QUESTION": "How long does an air conditioning installation take in Szeged?",
