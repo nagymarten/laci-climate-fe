@@ -16,7 +16,7 @@
   "CONTACT": {
     "TITLE": "Kapcsolatfelvétel",
     "DESCRIPTION": "Egyedi ajánlatokért keressen bizalommal e-mailben!",
-    "CTA": "Egyedi ajánlatokért keressen bizalommal e-mailben vagy telefonon!",
+    "CTA": "Egyedi ajánlatokért keressen bizalommal e-mailben vagy telefonon! – Mitrik László",
     "FORM": {
       "NAME": "Név",
       "EMAIL": "Email",
@@ -85,7 +85,7 @@
       "DESCRIPTION": "Korszerű, energiahatékony rendszereket telepítünk, melyek évi több ezer kWh energiamegtakarítást eredményeznek."
     },
     "EXPERIENCE": {
-      "VALUE": "15 év",
+      "VALUE": "5 év",
       "TITLE": "Tapasztalat",
       "DESCRIPTION": "Stabil szakmai háttérrel és naprakész technológiai tudással biztosítjuk, hogy Ön mindig a legjobb megoldást kapja."
     }
@@ -103,6 +103,25 @@
     "COMFORT": {
       "TITLE": "Kényelem",
       "DESCRIPTION": "Automatizált rendszerek, okosvezérlés"
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "Ügyfeleink véleménye",
+    "SUBTITLE": "Több mint 500 elégedett ügyfél választotta már szolgáltatásainkat Szegeden és környékén",
+    "REVIEW_1": {
+      "TEXT": "Gyors, precíz munka. Mitrik László szakszerűen telepítette a klímánkat, minden tökéletesen működik. Csak ajánlani tudom!",
+      "AUTHOR": "Nagy Péter",
+      "DATE": "2025. január"
+    },
+    "REVIEW_2": {
+      "TEXT": "Pontos időpontegyeztetés, tiszta munkavégzés. A hőszivattyú telepítése problémamentes volt, azóta is kifogástalanul fűt. Professzionális csapat!",
+      "AUTHOR": "Kovács Anna",
+      "DATE": "2024. december"
+    },
+    "REVIEW_3": {
+      "TEXT": "Kiváló ár-érték arány, megbízható szakember. A multi split rendszer telepítése után minden szobában tökéletes a hőmérséklet. Köszönjük!",
+      "AUTHOR": "Szabó István",
+      "DATE": "2024. november"
     }
   },
   "FAQ": {
@@ -178,18 +197,35 @@
     "NAVIGATION": "Navigáció",
     "SELECT_LANGUAGE": "Nyelv kiválasztása"
   },
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Ugrás a tartalomhoz"
+  },
   "FOOTER": {
     "ALL_RIGHTS": "Minden jog fenntartva",
     "MADE_BY": "Készítette"
   },
+  "TRUST": {
+    "CERTIFIED": "Engedéllyel rendelkező szakember",
+    "INSURED": "Teljes felelősségbiztosítás",
+    "EXPERIENCE": "5 év szakmai tapasztalat"
+  },
+  "ABOUT": {
+    "TITLE": "Rólam",
+    "INTRO": "2020 óta nyújtok szakszerű klímatechnikai szolgáltatásait Szegeden és környékén. Klímatechnikai szakemberként több mint 5 éves tapasztalattal rendelkezem a klímaszerelés, hőszivattyú telepítés és központi fűtés területén.",
+    "EXPERIENCE": "5 év alatt több mint 500 elégedett ügyfél választotta szolgáltatásaimat, legyen szó lakossági, ipari vagy kereskedelmi objektumokról. Minden projekt egyedi, és mindig az Ön igényeire szabott, energiatakarékos megoldásokat kínálok.",
+    "COMMITMENT": "Büszke vagyok arra, hogy partnereim hosszú távon velem maradnak, és rendszeres karbantartással gondoskodom berendezéseik optimális működéséről. A minőség, a pontosság és az ügyfél-elégedettség nálam nem csak szlogen – ez a munkám alapja."
+  },
   "SEO": {
     "TITLE": "Mitrik Hűtés – Klímaszerelés és Hőszivattyú Szeged környékén",
-    "DESCRIPTION": "Klímaszerelés, hőszivattyúk és központi fűtés teljes körű kivitelezése és karbantartása Szegeden és környékén. Ingyenes felmérés, gyors ajánlat. 15 év tapasztalat, 500+ elégedett ügyfél.",
+    "DESCRIPTION": "Klímaszerelés, hőszivattyúk és központi fűtés teljes körű kivitelezése és karbantartása Szegeden és környékén. Ingyenes felmérés, gyors ajánlat. 5 év tapasztalat, 500+ elégedett ügyfél.",
     "KEYWORDS": "klímaszerelés Szeged, hőszivattyú telepítés, split klíma, multi split, parapet klíma, mennyezeti kazettás, klíma karbantartás, központi fűtés, energiatakarékos megoldások, klímaszerelő Szeged, hőszivattyú szerelés, klíma telepítés árak, ingyenes felmérés Szeged"
   },
   "IMAGES": {
     "FLAG_HU": "Magyar zászló",
-    "FLAG_EN": "Angol zászló"
+    "FLAG_EN": "Angol zászló",
+    "CLIMATE_INSTALLATION_ALT": "Szakszerű klímaszerelés folyamatban Szegeden - beltéri és kültéri egység telepítése",
+    "MAINTENANCE_ALT": "Klíma karbantartás - szűrőtisztítás és rendszeres ellenőrzés a hatékony működésért",
+    "LOGO_ALT": "Mitrik Hűtés logó - klímaszerelés és hőszivattyú szakértő Szeged és környékén"
   },
   "COOKIE": {
     "BANNER": {

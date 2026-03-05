@@ -16,7 +16,7 @@
   "CONTACT": {
     "TITLE": "Contact Us",
     "DESCRIPTION": "For personalized offers, feel free to reach out via email!",
-    "CTA": "For custom offers, feel free to contact us via email or phone!",
+    "CTA": "For custom offers, feel free to contact us via email or phone! – László Mitrik",
     "FORM": {
       "NAME": "Name",
       "EMAIL": "Email",
@@ -85,7 +85,7 @@
       "DESCRIPTION": "We install modern, energy-efficient systems that result in thousands of kWh in annual energy savings."
     },
     "EXPERIENCE": {
-      "VALUE": "15 years",
+      "VALUE": "5 years",
       "TITLE": "Experience",
       "DESCRIPTION": "With a stable professional background and up-to-date technical knowledge, we ensure you always get the best solution."
     }
@@ -103,6 +103,25 @@
     "COMFORT": {
       "TITLE": "Comfort",
       "DESCRIPTION": "Automated systems, smart control"
+    }
+  },
+  "TESTIMONIALS": {
+    "TITLE": "What Our Customers Say",
+    "SUBTITLE": "Over 500 satisfied customers have chosen our services in Szeged and surrounding areas",
+    "REVIEW_1": {
+      "TEXT": "Fast, precise work. Mitrik László professionally installed our air conditioning, everything works perfectly. Highly recommended!",
+      "AUTHOR": "Péter Nagy",
+      "DATE": "January 2025"
+    },
+    "REVIEW_2": {
+      "TEXT": "Punctual scheduling, clean workmanship. The heat pump installation was trouble-free, and it's been heating perfectly ever since. Professional team!",
+      "AUTHOR": "Anna Kovács",
+      "DATE": "December 2024"
+    },
+    "REVIEW_3": {
+      "TEXT": "Excellent value for money, reliable professional. After the multi-split system installation, the temperature is perfect in every room. Thank you!",
+      "AUTHOR": "István Szabó",
+      "DATE": "November 2024"
     }
   },
   "FAQ": {
@@ -178,18 +197,35 @@
     "NAVIGATION": "Navigation",
     "SELECT_LANGUAGE": "Select Language"
   },
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Skip to content"
+  },
   "FOOTER": {
     "ALL_RIGHTS": "All rights reserved",
     "MADE_BY": "Made by"
   },
+  "TRUST": {
+    "CERTIFIED": "Licensed professional",
+    "INSURED": "Full liability insurance",
+    "EXPERIENCE": "5 years of professional experience"
+  },
+  "ABOUT": {
+    "TITLE": "About Me",
+    "INTRO": "I have been providing professional HVAC services in Szeged and surrounding areas since 2020. As an HVAC professional, I have over 5 years of experience in air conditioning installation, heat pump installation, and central heating.",
+    "EXPERIENCE": "Over the past 5 years, more than 500 satisfied customers have chosen my services for residential, industrial, and commercial properties. Every project is unique, and I always offer energy-efficient solutions tailored to your needs.",
+    "COMMITMENT": "I am proud that my partners stay with me long-term, and I ensure optimal operation of their equipment through regular maintenance. Quality, precision, and customer satisfaction are not just slogans for me – they are the foundation of my work."
+  },
   "SEO": {
     "TITLE": "Mitrik Hűtés – Air Conditioning and Heat Pumps in Szeged",
-    "DESCRIPTION": "Air conditioning, heat pumps, and central heating installation and maintenance in Szeged and surrounding areas. Free assessment, quick quote. 15 years of experience, 500+ satisfied clients.",
+    "DESCRIPTION": "Air conditioning, heat pumps, and central heating installation and maintenance in Szeged and surrounding areas. Free assessment, quick quote. 5 years of experience, 500+ satisfied clients.",
     "KEYWORDS": "air conditioning Szeged, heat pump installation, split air conditioner, multi split, parapet air conditioner, ceiling cassette, AC maintenance, central heating, energy efficient solutions, air conditioning installer Szeged, heat pump installation, AC installation prices, free assessment Szeged"
   },
   "IMAGES": {
     "FLAG_HU": "Hungarian flag",
-    "FLAG_EN": "English flag"
+    "FLAG_EN": "English flag",
+    "CLIMATE_INSTALLATION_ALT": "Professional air conditioning installation in progress in Szeged - indoor and outdoor unit setup",
+    "MAINTENANCE_ALT": "Air conditioning maintenance - filter cleaning and regular inspection for efficient operation",
+    "LOGO_ALT": "Mitrik Hűtés logo - air conditioning and heat pump expert in Szeged and surrounding areas"
   },
   "COOKIE": {
     "BANNER": {
