@@ -74,61 +74,71 @@
     </h2>
 
     <div class="flex flex-wrap justify-center gap-8">
-      <p-card
+      <div
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        [style]="{ width: '25rem', overflow: 'hidden' }"
-        styleClass="flex flex-col justify-center items-center"
+        class="card-hover border border-primary-200 shadow-lg"
+        style="width: 25rem; overflow: hidden; border-radius: 0.75rem;"
       >
-        <ng-template #header>
-          <img
-            alt="Klímaszerelés"
-            class="w-full"
-            src="assets/images/climate-installation.jpg"
-          />
-        </ng-template>
+        <p-card
+          [style]="{ width: '100%', overflow: 'hidden' }"
+          styleClass="flex flex-col justify-center items-center"
+        >
+          <ng-template #header>
+            <img
+              alt="Klímaszerelés"
+              class="w-full"
+              src="assets/images/climate-installation.jpg"
+            />
+          </ng-template>
 
-        <ng-template #title>
-          {{ "ORGANIZATION.TITLE" | translate }}
-        </ng-template>
+          <ng-template #title>
+            {{ "ORGANIZATION.TITLE" | translate }}
+          </ng-template>
 
-        <ng-template #subtitle>
-          {{ "ORGANIZATION.SUBTITLE" | translate }}
-        </ng-template>
+          <ng-template #subtitle>
+            {{ "ORGANIZATION.SUBTITLE" | translate }}
+          </ng-template>
 
-        <p>
-          {{ "ORGANIZATION.DESCRIPTION" | translate }}
-        </p>
-      </p-card>
+          <p>
+            {{ "ORGANIZATION.DESCRIPTION" | translate }}
+          </p>
+        </p-card>
+      </div>
 
-      <p-card
+      <div
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        [style]="{ width: '25rem', overflow: 'hidden' }"
-        styleClass="flex flex-col justify-center items-center"
+        class="card-hover border border-primary-200 shadow-lg"
+        style="width: 25rem; overflow: hidden; border-radius: 0.75rem;"
       >
-        <ng-template #header>
-          <img
-            alt="Karbantartás"
-            class="w-full"
-            src="assets/images/maintenance.png"
-          />
-        </ng-template>
+        <p-card
+          [style]="{ width: '100%', overflow: 'hidden' }"
+          styleClass="flex flex-col justify-center items-center"
+        >
+          <ng-template #header>
+            <img
+              alt="Karbantartás"
+              class="w-full"
+              src="assets/images/maintenance.png"
+            />
+          </ng-template>
 
-        <ng-template #title>
-          {{ "SERVICES.MAINTENANCE.TITLE" | translate }}
-        </ng-template>
+          <ng-template #title>
+            {{ "SERVICES.MAINTENANCE.TITLE" | translate }}
+          </ng-template>
 
-        <ng-template #subtitle>
-          {{ "SERVICES.MAINTENANCE.SUBTITLE" | translate }}
-        </ng-template>
+          <ng-template #subtitle>
+            {{ "SERVICES.MAINTENANCE.SUBTITLE" | translate }}
+          </ng-template>
 
-        <p>
-          {{ "SERVICES.MAINTENANCE.DESCRIPTION" | translate }}
-        </p>
-      </p-card>
+          <p>
+            {{ "SERVICES.MAINTENANCE.DESCRIPTION" | translate }}
+          </p>
+        </p-card>
+      </div>
     </div>
   </section>
 
@@ -149,7 +159,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-2xl font-semibold">{{
           "PRICING.BASE.TITLE" | translate
@@ -169,7 +179,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-2xl font-semibold">{{
           "PRICING.MAINTENANCE.TITLE" | translate
@@ -189,7 +199,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4"
+        class="flex flex-col justify-between border border-primary-200 shadow-lg rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-2xl font-semibold">{{
           "PRICING.REPAIR.TITLE" | translate
@@ -228,7 +238,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-5xl">👤</span>
         <span class="text-2xl font-medium">{{
@@ -243,7 +253,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-5xl">👥</span>
         <span class="text-2xl font-medium">{{
@@ -258,7 +268,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <span class="text-5xl">🏢</span>
         <span class="text-2xl font-medium">{{
@@ -288,7 +298,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <div class="rounded-full w-12 h-12 flex items-center justify-center">
           <span class="text-5xl">🌍</span>
@@ -305,7 +315,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-75 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <div class="rounded-full w-12 h-12 flex items-center justify-center">
           <span class="text-5xl">💶</span>
@@ -322,7 +332,7 @@
         pAnimateOnScroll
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
         leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-        class="flex flex-col bg-orange-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+        class="flex flex-col bg-orange-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4 card-hover"
       >
         <div class="rounded-full w-12 h-12 flex items-center justify-center">
           <span class="text-5xl">🛜</span>

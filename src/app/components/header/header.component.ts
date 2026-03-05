@@ -12,6 +12,7 @@ import { TranslateService, TranslateModule } from "@ngx-translate/core";
 import { ButtonModule } from "primeng/button";
 import { SelectModule, Select } from "primeng/select";
 import { DrawerModule } from "primeng/drawer";
+import { TooltipModule } from "primeng/tooltip";
 import { FormsModule } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { isPlatformBrowser, DOCUMENT } from "@angular/common";
@@ -27,6 +28,7 @@ import { CookieService } from "../../services/cookie.service";
     ButtonModule,
     SelectModule,
     DrawerModule,
+    TooltipModule,
     FormsModule,
     TranslateModule,
   ],

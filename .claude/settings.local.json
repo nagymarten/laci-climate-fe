@@ -14,7 +14,16 @@
       "WebFetch(domain:medium.com)",
       "Bash(git add:*)",
       "Bash(git push:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate @angular/ssr to 19.2.21 to match Angular CLI version\n\nFix deployment error where @angular-devkit/build-angular@19.2.21\nrequires @angular/ssr@^19.2.21 but 19.2.19 was installed.\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate @angular/ssr to 19.2.21 to match Angular CLI version\n\nFix deployment error where @angular-devkit/build-angular@19.2.21\nrequires @angular/ssr@^19.2.21 but 19.2.19 was installed.\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(dir:*)",
+      "Bash(npm start)",
+      "Bash(timeout:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(git checkout:*)"
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
   }
 }
