@@ -1,11 +1,23 @@
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
 @import 'primeicons/primeicons.css';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
 .mat-icon {
-height: 0%;}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  height: 0%;
+}
+
+/* Accessibility: Enhanced focus styles */
+*:focus-visible {
+  outline: 3px solid var(--p-primary-color);
+  outline-offset: 2px;
+}
+
+/* Better button and link focus */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--p-primary-color);
+  outline-offset: 2px;
+}

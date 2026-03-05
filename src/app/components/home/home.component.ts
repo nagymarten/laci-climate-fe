@@ -23,13 +23,15 @@ import { TextareaModule } from "primeng/textarea";
 import emailjs from "@emailjs/browser";
 import { Toast } from "primeng/toast";
 import { Router, ActivatedRoute } from "@angular/router";
-import { isPlatformBrowser } from "@angular/common";
+import { isPlatformBrowser, DOCUMENT } from "@angular/common";
 import { ImageModule } from "primeng/image";
 import { ImageCompareModule } from "primeng/imagecompare";
 import { CardModule } from "primeng/card";
+import { PanelModule } from "primeng/panel";
 import { FooterComponent } from "../footer/footer.component";
 import { HeaderComponent } from "../header/header.component";
 import { SEOService } from "../../services/seo.service";
+import { CookieService } from "../../services/cookie.service";
 
 @Component({
   selector: "app-home",
@@ -50,6 +52,7 @@ import { SEOService } from "../../services/seo.service";
     ImageModule,
     ImageCompareModule,
     CardModule,
+    PanelModule,
     FooterComponent,
     HeaderComponent,
   ],
@@ -61,6 +64,8 @@ export class HomeComponent implements OnInit {
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private seoService = inject(SEOService);
+  private cookieService = inject(CookieService);
+  private doc = inject(DOCUMENT);
 
   @ViewChild("contactFormRef") contactForm!: ElementRef;
 
@@ -70,6 +75,7 @@ export class HomeComponent implements OnInit {
 
   scrollOpacity = 1;
   isVisible = true;
+  isDark = signal(false);
 
   name = "";
   message = "";
@@ -83,6 +89,24 @@ export class HomeComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       const container = document.querySelector(".scrollable");
       if (container) (container as HTMLElement).scrollTop = 0;
+
+      // Check initial theme
+      const darkMode = this.cookieService.getTheme();
+      if (darkMode !== null) {
+        this.isDark.set(darkMode);
+      }
+
+      // Listen for theme changes
+      const observer = new MutationObserver(() => {
+        this.isDark.set(
+          this.doc.documentElement.classList.contains("my-app-dark")
+        );
+      });
+
+      observer.observe(this.doc.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
     }
 
     // Listen to language changes from header component
@@ -171,7 +195,7 @@ export class HomeComponent implements OnInit {
   }
 
   callPhone() {
-    window.location.href = "tel:+36201234567";
+    window.location.href = "tel:+36202260959";
   }
 
   scrollToForm() {

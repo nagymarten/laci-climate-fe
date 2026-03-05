@@ -36,6 +36,11 @@
                 "glob": "robots.txt",
                 "input": "src",
                 "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src/assets",
+                "output": "/"
               }
             ],
             "styles": ["src/styles.css"],
@@ -60,7 +65,7 @@
                 "scripts": true,
                 "styles": {
                   "minify": true,
-                  "inlineCritical": false
+                  "inlineCritical": true
                 },
                 "fonts": {
                   "inline": true
@@ -123,7 +128,10 @@
             "routes": [
               "/",
               "/hu",
-              "/en"
+              "/en",
+              "/notfound",
+              "/hu/notfound",
+              "/en/notfound"
             ]
           },
           "configurations": {
@@ -133,7 +141,10 @@
               "routes": [
                 "/",
                 "/hu",
-                "/en"
+                "/en",
+                "/notfound",
+                "/hu/notfound",
+                "/en/notfound"
               ]
             }
           }

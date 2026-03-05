@@ -2,6 +2,8 @@ import { inject, Injectable } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { DOCUMENT } from "@angular/common";
 import { TranslateService } from "@ngx-translate/core";
+// TODO: Uncomment when Google Business reviews are configured
+// import { GoogleBusinessReviewsService } from "./google-business-reviews.service";
 
 export interface SEOData {
   title: string;
@@ -22,9 +24,11 @@ export class SEOService {
   private meta = inject(Meta);
   private document = inject(DOCUMENT);
   private translate = inject(TranslateService);
+  // TODO: Uncomment when Google Business reviews are configured
+  // private reviewService = inject(GoogleBusinessReviewsService);
 
   private readonly baseUrl = "https://mitrikhutes.hu";
-  private readonly defaultImage = "https://mitrikhutes.hu/assets/og-cover.jpg";
+  private readonly defaultImage = "https://mitrikhutes.hu/assets/images/climate-installation.jpg";
 
   updateSEO(data: SEOData): void {
     const lang = data.locale || "hu";
@@ -187,8 +191,8 @@ export class SEOService {
         "https://mitrikhutes.hu/assets/images/climate-installation.jpg",
         "https://mitrikhutes.hu/assets/images/maintenance.png",
       ],
-      logo: "https://mitrikhutes.hu/assets/logo.png",
-      telephone: "+36-20-123-4567",
+      logo: "https://mitrikhutes.hu/assets/images/logo.svg",
+      telephone: "+36 20 226 09 59",
       inLanguage: lang,
       address: {
         "@type": "PostalAddress",
@@ -205,7 +209,8 @@ export class SEOService {
         },
       ],
       priceRange: "$$",
-      sameAs: ["https://www.facebook.com/valodi_oldal"],
+      // TODO: Add real social media URLs
+      // sameAs: ["https://www.facebook.com/mitrikhutes"],
       makesOffer: [
         {
           "@type": "Offer",
@@ -402,7 +407,7 @@ export class SEOService {
         "https://mitrikhutes.hu/assets/images/climate-installation.jpg",
         "https://mitrikhutes.hu/assets/images/maintenance.png",
       ],
-      telephone: "+36-20-123-4567",
+      telephone: "+36 20 226 09 59",
       priceRange: "$$",
       address: {
         "@type": "PostalAddress",
@@ -445,6 +450,185 @@ export class SEOService {
     };
 
     this.addStructuredDataScript(localBusinessData);
+
+    // Add Service schema for rich results
+    this.addServiceSchema(lang);
+
+    // Add BreadcrumbList schema
+    this.addBreadcrumbSchema(url, lang);
+
+    // TODO: Add Review/Rating schema from Google Business Profile
+    // Instructions: See GOOGLE_REVIEWS_SETUP.md for complete setup guide
+    // When ready:
+    // 1. Uncomment GoogleBusinessReviewsService import at top
+    // 2. Uncomment reviewService injection above
+    // 3. Uncomment the code below:
+    /*
+    this.reviewService.getReviews().subscribe((reviews) => {
+      if (reviews && reviews.length > 0) {
+        this.addReviewSchema(reviews);
+      }
+    });
+    */
+  }
+
+  private addServiceSchema(lang: string): void {
+    const services = [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name:
+          lang === "hu"
+            ? "Klímaszerelés Szeged"
+            : "Air Conditioning Installation Szeged",
+        description:
+          lang === "hu"
+            ? "Szakszerű klímaszerelés és telepítés Szegeden. Gyors, megbízható szolgáltatás versenyképes árakon."
+            : "Professional air conditioning installation in Szeged. Fast, reliable service at competitive prices.",
+        provider: {
+          "@type": "HVACBusiness",
+          name: "Mitrik Hűtés",
+          telephone: "+36 20 226 09 59",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Szeged",
+          "@id": "https://www.wikidata.org/wiki/Q130212",
+        },
+        serviceType: "HVAC Installation",
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "HUF",
+          price: "95000",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "HUF",
+            price: "95000",
+            valueAddedTaxIncluded: "true",
+          },
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name:
+          lang === "hu"
+            ? "Hőszivattyú telepítés Szeged"
+            : "Heat Pump Installation Szeged",
+        description:
+          lang === "hu"
+            ? "Energiatakarékos hőszivattyú rendszerek telepítése és karbantartása Szegeden."
+            : "Energy-efficient heat pump system installation and maintenance in Szeged.",
+        provider: {
+          "@type": "HVACBusiness",
+          name: "Mitrik Hűtés",
+          telephone: "+36 20 226 09 59",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Szeged",
+        },
+        serviceType: "Heat Pump Installation",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: lang === "hu" ? "Klíma karbantartás" : "Air Conditioning Maintenance",
+        description:
+          lang === "hu"
+            ? "Rendszeres klíma karbantartás és szerviz szolgáltatás a hosszú élettartam érdekében."
+            : "Regular air conditioning maintenance and service for long-term performance.",
+        provider: {
+          "@type": "HVACBusiness",
+          name: "Mitrik Hűtés",
+          telephone: "+36 20 226 09 59",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Szeged",
+        },
+        serviceType: "HVAC Maintenance",
+      },
+    ];
+
+    services.forEach((service) => this.addStructuredDataScript(service));
+  }
+
+  private addBreadcrumbSchema(url: string, lang: string): void {
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: lang === "hu" ? "Kezdőlap" : "Home",
+          item: `https://mitrikhutes.hu/${lang}`,
+        },
+      ],
+    };
+
+    this.addStructuredDataScript(breadcrumb);
+  }
+
+  /**
+   * TODO: Add review schema from Google Business Profile
+   *
+   * SETUP REQUIRED - See GOOGLE_REVIEWS_SETUP.md for complete instructions
+   *
+   * Quick steps:
+   * 1. Get Google Place ID from https://developers.google.com/maps/documentation/place-id-finder
+   * 2. Enable Places API in Google Cloud Console
+   * 3. Create and configure API key
+   * 4. Update src/environments/environment.ts with credentials
+   * 5. Set enableGoogleReviews: true
+   * 6. Uncomment GoogleBusinessReviewsService usage in updateStructuredData()
+   *
+   * This method generates Schema.org Review markup for search engines
+   * using REAL customer reviews from Google Business Profile.
+   *
+   * @param reviews Array of review objects from Google Business Profile API
+   */
+  private addReviewSchema(reviews?: any[]): void {
+    if (!reviews || reviews.length === 0) {
+      // No reviews available - skip schema generation
+      return;
+    }
+
+    // Calculate aggregate rating from real reviews
+    const totalRating = reviews.reduce((sum, r) => sum + r.rating, 0);
+    const avgRating = (totalRating / reviews.length).toFixed(1);
+
+    const reviewSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Mitrik Hűtés",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: avgRating,
+        bestRating: "5",
+        worstRating: "1",
+        ratingCount: reviews.length.toString(),
+      },
+      // Add individual reviews
+      review: reviews.slice(0, 5).map((review) => ({
+        "@type": "Review",
+        author: {
+          "@type": "Person",
+          name: review.authorName || "Anonymous",
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: review.rating.toString(),
+          bestRating: "5",
+          worstRating: "1",
+        },
+        reviewBody: review.text,
+        datePublished: review.createTime,
+      })),
+    };
+
+    this.addStructuredDataScript(reviewSchema);
   }
 
   private addStructuredDataScript(data: object): void {

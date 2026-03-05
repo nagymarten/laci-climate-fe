@@ -266,7 +266,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return "https://flagcdn.com/unknown.svg";
   }
 
-  scrollToSection(sectionId: string): void {
+  scrollToSection(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+
     if (isPlatformBrowser(this.platformId)) {
       // Close drawer on mobile after clicking
       this.drawerVisible.set(false);
@@ -283,6 +287,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
           behavior: "smooth",
         });
       }
+    }
+  }
+
+  scrollToTop(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   }
 

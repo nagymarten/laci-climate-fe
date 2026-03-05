@@ -1,54 +1,83 @@
+<a href="#main-content" class="skip-link">
+  {{ "A11Y.SKIP_TO_CONTENT" | translate }}
+</a>
+
 <div
   class="scrollable flex justify-between items-center gap-4 p-4 border-bottom bg-surface-50 dark:bg-surface-800"
 >
-  <!-- Mobile/Tablet Menu Button -->
-  <p-button
-    icon="pi pi-bars"
-    variant="text"
-    (onClick)="drawerVisible.set(true)"
-    class="lg:hidden"
-    [title]="'HEADER.NAVIGATION' | translate"
-  ></p-button>
+  <!-- Logo and Mobile Menu -->
+  <div class="flex items-center gap-4">
+    <p-button
+      icon="pi pi-bars"
+      variant="text"
+      (onClick)="drawerVisible.set(true)"
+      class="lg:hidden"
+      [title]="'HEADER.NAVIGATION' | translate"
+    ></p-button>
+
+    <div
+      class="h-10 cursor-pointer"
+      style="
+        width: 120px;
+        background-color: var(--p-button-primary-background);
+        mask-image: url(assets/images/logo.svg);
+        -webkit-mask-image: url(assets/images/logo.svg);
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-position: center;
+      "
+      [attr.aria-label]="'Mitrik Hűtés Logo'"
+      (click)="scrollToTop()"
+    ></div>
+  </div>
 
   <!-- Desktop Navigation -->
   <nav class="hidden lg:flex gap-2 items-center">
-    <p-button
-      [label]="'SERVICES.TITLE' | translate"
-      icon="pi pi-wrench"
-      variant="text"
-      [raised]="true"
-      (onClick)="scrollToSection('szolgaltatasok')"
-    ></p-button>
-    <p-button
-      [label]="'PRICING.TITLE' | translate"
-      icon="pi pi-tag"
-      variant="text"
-      [raised]="true"
-      (onClick)="scrollToSection('arak')"
-    ></p-button>
-    <p-button
-      [label]="'CLIENT_TYPES.TITLE' | translate"
-      icon="pi pi-users"
-      variant="text"
-      [raised]="true"
-      (onClick)="scrollToSection('ugyfeltipusok')"
-    ></p-button>
-    <p-button
-      [label]="'CONTACT.TITLE' | translate"
-      icon="pi pi-envelope"
-      variant="text"
-      [raised]="true"
-      (onClick)="scrollToSection('kapcsolat')"
-    ></p-button>
-    <p-button
-      [label]="getFaqLabel()"
-      icon="pi pi-question-circle"
-      variant="text"
-      [raised]="true"
-      (onClick)="scrollToSection('gyakori-kerdesek')"
-      pTooltip="{{ 'FAQ.MENU_TOOLTIP' | translate }}"
-      tooltipPosition="right"
-    ></p-button>
+    <a href="#szolgaltatasok" (click)="scrollToSection('szolgaltatasok', $event)">
+      <p-button
+        [label]="'SERVICES.TITLE' | translate"
+        icon="pi pi-wrench"
+        variant="text"
+        [raised]="true"
+      ></p-button>
+    </a>
+    <a href="#arak" (click)="scrollToSection('arak', $event)">
+      <p-button
+        [label]="'PRICING.TITLE' | translate"
+        icon="pi pi-tag"
+        variant="text"
+        [raised]="true"
+      ></p-button>
+    </a>
+    <a href="#ugyfeltipusok" (click)="scrollToSection('ugyfeltipusok', $event)">
+      <p-button
+        [label]="'CLIENT_TYPES.TITLE' | translate"
+        icon="pi pi-users"
+        variant="text"
+        [raised]="true"
+      ></p-button>
+    </a>
+    <a href="#kapcsolat" (click)="scrollToSection('kapcsolat', $event)">
+      <p-button
+        [label]="'CONTACT.TITLE' | translate"
+        icon="pi pi-envelope"
+        variant="text"
+        [raised]="true"
+      ></p-button>
+    </a>
+    <a href="#gyakori-kerdesek" (click)="scrollToSection('gyakori-kerdesek', $event)">
+      <p-button
+        [label]="getFaqLabel()"
+        icon="pi pi-question-circle"
+        variant="text"
+        [raised]="true"
+        pTooltip="{{ 'FAQ.MENU_TOOLTIP' | translate }}"
+        tooltipPosition="right"
+      ></p-button>
+    </a>
   </nav>
 
   <!-- Mobile Drawer -->
@@ -67,46 +96,51 @@
     </ng-template>
 
     <div class="flex flex-col gap-2 py-4">
-      <p-button
-        [label]="'SERVICES.TITLE' | translate"
-        icon="pi pi-wrench"
-        variant="text"
-        [raised]="true"
-        styleClass="w-full justify-start"
-        (onClick)="scrollToSection('szolgaltatasok')"
-      ></p-button>
-      <p-button
-        [label]="'PRICING.TITLE' | translate"
-        icon="pi pi-tag"
-        variant="text"
-        [raised]="true"
-        styleClass="w-full justify-start"
-        (onClick)="scrollToSection('arak')"
-      ></p-button>
-      <p-button
-        [label]="'CLIENT_TYPES.TITLE' | translate"
-        icon="pi pi-users"
-        variant="text"
-        [raised]="true"
-        styleClass="w-full justify-start"
-        (onClick)="scrollToSection('ugyfeltipusok')"
-      ></p-button>
-      <p-button
-        [label]="'CONTACT.TITLE' | translate"
-        icon="pi pi-envelope"
-        variant="text"
-        [raised]="true"
-        styleClass="w-full justify-start"
-        (onClick)="scrollToSection('kapcsolat')"
-      ></p-button>
-      <p-button
-        [label]="getFaqLabel()"
-        icon="pi pi-question-circle"
-        variant="text"
-        [raised]="true"
-        styleClass="w-full justify-start"
-        (onClick)="scrollToSection('gyakori-kerdesek')"
-      ></p-button>
+      <a href="#szolgaltatasok" (click)="scrollToSection('szolgaltatasok', $event)">
+        <p-button
+          [label]="'SERVICES.TITLE' | translate"
+          icon="pi pi-wrench"
+          variant="text"
+          [raised]="true"
+          styleClass="w-full justify-start"
+        ></p-button>
+      </a>
+      <a href="#arak" (click)="scrollToSection('arak', $event)">
+        <p-button
+          [label]="'PRICING.TITLE' | translate"
+          icon="pi pi-tag"
+          variant="text"
+          [raised]="true"
+          styleClass="w-full justify-start"
+        ></p-button>
+      </a>
+      <a href="#ugyfeltipusok" (click)="scrollToSection('ugyfeltipusok', $event)">
+        <p-button
+          [label]="'CLIENT_TYPES.TITLE' | translate"
+          icon="pi pi-users"
+          variant="text"
+          [raised]="true"
+          styleClass="w-full justify-start"
+        ></p-button>
+      </a>
+      <a href="#kapcsolat" (click)="scrollToSection('kapcsolat', $event)">
+        <p-button
+          [label]="'CONTACT.TITLE' | translate"
+          icon="pi pi-envelope"
+          variant="text"
+          [raised]="true"
+          styleClass="w-full justify-start"
+        ></p-button>
+      </a>
+      <a href="#gyakori-kerdesek" (click)="scrollToSection('gyakori-kerdesek', $event)">
+        <p-button
+          [label]="getFaqLabel()"
+          icon="pi pi-question-circle"
+          variant="text"
+          [raised]="true"
+          styleClass="w-full justify-start"
+        ></p-button>
+      </a>
     </div>
   </p-drawer>
 
