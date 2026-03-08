@@ -5,7 +5,7 @@
 <div
   class="scrollable flex justify-between items-center gap-4 p-4 border-bottom bg-surface-50 dark:bg-surface-800"
 >
-  <!-- Logo and Mobile Menu -->
+  <!-- Mobile Menu & Desktop Navigation -->
   <div class="flex items-center gap-4">
     <p-button
       icon="pi pi-bars"
@@ -15,27 +15,8 @@
       [title]="'HEADER.NAVIGATION' | translate"
     ></p-button>
 
-    <div
-      class="h-10 cursor-pointer"
-      style="
-        width: 120px;
-        background-color: var(--p-button-primary-background);
-        mask-image: url(assets/images/logo.svg);
-        -webkit-mask-image: url(assets/images/logo.svg);
-        mask-size: contain;
-        -webkit-mask-size: contain;
-        mask-repeat: no-repeat;
-        -webkit-mask-repeat: no-repeat;
-        mask-position: center;
-        -webkit-mask-position: center;
-      "
-      [attr.aria-label]="'Mitrik Hűtés Logo'"
-      (click)="scrollToTop()"
-    ></div>
-  </div>
-
-  <!-- Desktop Navigation -->
-  <nav class="hidden lg:flex gap-2 items-center">
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex gap-2 items-center">
     <a href="#szolgaltatasok" (click)="scrollToSection('szolgaltatasok', $event)">
       <p-button
         [label]="'SERVICES.TITLE' | translate"
@@ -78,7 +59,8 @@
         tooltipPosition="right"
       ></p-button>
     </a>
-  </nav>
+    </nav>
+  </div>
 
   <!-- Mobile Drawer -->
   <p-drawer

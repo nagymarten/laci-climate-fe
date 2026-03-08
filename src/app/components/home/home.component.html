@@ -6,13 +6,13 @@
   id="main-content"
   class="card flex flex-col items-center overflow-hidden pt-12 m-2"
 >
-  <p-panel header="" styleClass="w-full">
-    <div class="flex justify-center mb-6">
+  <p-panel header="" styleClass="max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-6">
       <div
         pAnimateOnScroll
-        class="h-48 sm:h-56 md:h-64 lg:h-72 opacity-100 cursor-pointer transition-transform duration-300 hover:scale-110"
+        class="h-32 sm:h-40 md:h-48 flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-110"
         style="
-          width: 288px;
+          width: 192px;
           background-color: var(--p-button-primary-background);
           mask-image: url(assets/images/logo.svg);
           -webkit-mask-image: url(assets/images/logo.svg);
@@ -26,24 +26,26 @@
         [attr.aria-label]="'Mitrik Hűtés Logo'"
         enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
       ></div>
+
+      <div class="flex flex-col gap-4">
+        <h1
+          pAnimateOnScroll
+          class="text-3xl sm:text-4xl md:text-5xl font-bold text-center md:text-left opacity-100"
+          enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+        >
+          {{ "HEADLINE" | translate }}
+        </h1>
+
+        <h2
+          pAnimateOnScroll
+          enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
+          leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
+          class="text-lg sm:text-xl md:text-2xl font-medium text-center md:text-left text-muted-color"
+        >
+          {{ "SUBHEADLINE" | translate }}
+        </h2>
+      </div>
     </div>
-
-    <h1
-      pAnimateOnScroll
-      class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-8 px-4 opacity-100"
-      enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
-    >
-      {{ "HEADLINE" | translate }}
-    </h1>
-
-    <h2
-      pAnimateOnScroll
-      enterClass="animate-enter fade-in-10 zoom-in-50 animate-duration-1000"
-      leaveClass="animate-leave fade-out zoom-in-50 animate-duration-1000"
-      class="text-lg sm:text-xl md:text-2xl font-medium text-center mb-8 sm:mb-12 px-4 max-w-3xl mx-auto text-muted-color"
-    >
-      {{ "SUBHEADLINE" | translate }}
-    </h2>
 
     <div
       class="flex flex-col sm:flex-row gap-4 mb-4 items-center justify-center"
